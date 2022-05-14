@@ -6,14 +6,15 @@ import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArro
 import AliceCarousel from "react-alice-carousel"
 const handleDragStart = (e) => e.preventDefault();
 const items = [
-   <img src="https://images.hdqwalls.com/download/raze-valorant-3t-1366x768.jpg" 
+   <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7d4cc70b-f7c4-499a-a91a-f3e86b8b39f0/de1t7ve-07f84e57-aaac-4117-bdf1-397cdc029805.jpg/v1/fill/w_1280,h_720,q_75,strp/halo_infinite___wallpaper_by_halomika_de1t7ve-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvN2Q0Y2M3MGItZjdjNC00OTlhLWE5MWEtZjNlODZiOGIzOWYwXC9kZTF0N3ZlLTA3Zjg0ZTU3LWFhYWMtNDExNy1iZGYxLTM5N2NkYzAyOTgwNS5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.V-gHMMRWiMjRCebXbXGxS-GkkJtbi1aF56KJTshk7j8" 
     onDragStart={handleDragStart} role="presentation"
      width="100%" height="250" 
       alt='hello'
       />
       ,
-    <img src="https://img.wallpapersafari.com/desktop/1440/900/45/14/P2Djro.jpg" onDragStart={handleDragStart} role="presentation" width="100%" height="250"    alt='hello'/>,
+    <img src="https://wallpaperaccess.com/full/27583.jpg" onDragStart={handleDragStart} role="presentation" width="100%" height="250"    alt='hello'/>,
     <img src="https://3.bp.blogspot.com/-Za5sFBOi82U/Xq5WJwM9ahI/AAAAAAAAX9Y/tYYZ5dnoNaMUrNBXe8CWSu2xNc45j0sUgCLcBGAsYHQ/w919/eivor-assassins-creed-valhalla-logo-uhdpaper.com-4K-3.1686-wp.thumbnail.jpg" alt='hello' onDragStart={handleDragStart} role="presentation" width="100%" height="250"  />,
+    <img src="https://wallpapers-hub.art/wallpaper-images/38280.jpg" alt='hello' onDragStart={handleDragStart} role="presentation" width="100%" height="250"  />,
   ];
 
 const Carousel = () => {

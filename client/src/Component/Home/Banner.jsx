@@ -5,7 +5,7 @@ import Carousel from './Carousel1/Carousel'
 const useStyle=makeStyles(()=>({
 
     bannerContent: {
-        height: 400,
+        height: 395,
         opacity:0.7,
         display: "flex",
         width:"100%",

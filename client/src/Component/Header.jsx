@@ -16,12 +16,14 @@ export default function Header() {
   const [navSize, setnavSize] = useState("5.5rem");
   const [navColor, setnavColor] = useState("white");
   const [navTextCol, setNavTextCol] = useState("black");
+  const [loginpadding, setLoginpadding] = useState("2.5rem");
 
   //   *****************Provided On Scroll Effect*****************
   const listenScrollEvent = () => {
-    window.scrollY > 10 ? setnavColor("#19272ec2") : setnavColor("#f5f5f5");
+    window.scrollY > 10 ? setnavColor("#19272ec2") : setnavColor("#e2e7e9");
     window.scrollY > 10 ? setnavSize("4.5rem") : setnavSize("5.5rem");
     window.scrollY > 10 ? setNavTextCol("white") : setNavTextCol("black");
+    window.scrollY > 10 ? setLoginpadding("2rem") : setLoginpadding("2.5rem");
   };
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
@@ -47,7 +49,13 @@ export default function Header() {
     },
     btn:{
       color: navTextCol,
-    }
+    },
+    cssLabel: {
+      color: navTextCol,
+      "&.Mui-focused": {
+        color: navTextCol
+      }
+    },
   }));
   const classes = useStyles();
   const navigate = useNavigate();
@@ -73,7 +81,7 @@ export default function Header() {
             variant="h6"
             style={{color:navTextCol}}
           >
-            Cryptracker
+            G-Tracker
           </Typography>
           <Button   className={classes.btn} style={{ margin: "2rem" }}>Ranking</Button>
           <Button  className={classes.btn} style={{ marginRight: "2rem" }}>
@@ -87,6 +95,12 @@ export default function Header() {
             Trending Today
           </Button>
           <TextField
+           InputLabelProps={{
+            classes: {
+              root: classes.cssLabel,
+              focused: classes.cssFocused
+            }
+          }}
             id="outlined-search"
             label="Search Movies Here"
             type="search"
@@ -100,9 +114,12 @@ export default function Header() {
           />
           <Button
           className={classes.btn}
-            style={{ marginLeft: "2rem", height: "3rem" }}
-          >
-            <AccountCircleIcon fontSize="large" />
+            style={{ marginLeft: "2rem", height: "3rem" ,paddingBlock:loginpadding }}
+            >
+              <div style={{display:"flex",flexDirection:"column"}}>
+            <div><AccountCircleIcon fontSize="large" /></div>
+            <div><Typography>Login</Typography></div>
+            </div>
           </Button>
         </Toolbar>
       </AppBar>

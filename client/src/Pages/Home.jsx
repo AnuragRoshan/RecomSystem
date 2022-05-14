@@ -1,7 +1,8 @@
 import React from 'react'
 import Banner from '../Component/Home/Banner'
-import Carousel from '../Component/Home/Carousel1/Carousel'
+import { Recommended4u } from '../Component/Home/Recommended4u'
 import Todaystop from '../Component/Home/Todaystop'
+import SportsSection from '../Component/Home/SportsSection'
 // import React from 'react'
 // import Axios from 'axios';
 // import { useState } from 'react';
@@ -31,9 +32,9 @@ import Todaystop from '../Component/Home/Todaystop'
     //   </div>
 
     // <div style={{marginTop:"88px",width:"100%" ,height:"648", display:"flex", flexDirection:"column",backgroundColor:"yellow"}}>
-      {/* call carousel */}
+      /* call carousel */
     //  <div> <Carousel/></div>
-      {/* <Todaystop/> */} 
+      /* <Todaystop/> */ 
   
       // </div>
     // </div>
@@ -49,6 +50,8 @@ const Home = () => {
     <div>
       <Banner/>
       <Todaystop/>
+      <Recommended4u/>
+      <SportsSection/>
     </div>
   )
 }

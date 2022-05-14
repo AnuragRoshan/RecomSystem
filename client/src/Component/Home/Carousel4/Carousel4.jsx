@@ -6,14 +6,15 @@ import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArro
 import AliceCarousel from "react-alice-carousel"
 const handleDragStart = (e) => e.preventDefault();
 const items = [
-   <img src="https://images.hdqwalls.com/download/raze-valorant-3t-1366x768.jpg" 
+   <img src="https://wallpapercave.com/dwp2x/wp6940880.jpg" 
     onDragStart={handleDragStart} role="presentation"
      width="100%" height="250" 
       alt='hello'
       />
       ,
-    <img src="https://img.wallpapersafari.com/desktop/1440/900/45/14/P2Djro.jpg" onDragStart={handleDragStart} role="presentation" width="100%" height="250"    alt='hello'/>,
-    <img src="https://3.bp.blogspot.com/-Za5sFBOi82U/Xq5WJwM9ahI/AAAAAAAAX9Y/tYYZ5dnoNaMUrNBXe8CWSu2xNc45j0sUgCLcBGAsYHQ/w919/eivor-assassins-creed-valhalla-logo-uhdpaper.com-4K-3.1686-wp.thumbnail.jpg" alt='hello' onDragStart={handleDragStart} role="presentation" width="100%" height="250"  />,
+    <img src="https://cdn.wallpapersafari.com/69/85/TW7oM9.jpg" onDragStart={handleDragStart} role="presentation" width="100%" height="250"    alt='hello'/>,
+    <img src="https://wallpapercave.com/dwp2x/wp4523743.png" alt='hello' onDragStart={handleDragStart} role="presentation" width="100%" height="250"  />,
+    <img src="https://images.wallpapersden.com/image/download/rocket-league-hd-the-batman_bWZubmiUmZqaraWkpJRmbmdlrWZlbWU.jpg" alt='hello' onDragStart={handleDragStart} role="presentation" width="100%" height="250"  />,
   ];
 
 const Carousel = () => {
