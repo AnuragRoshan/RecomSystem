@@ -10,7 +10,6 @@ const useStyle=makeStyles(()=>({
         display: "flex",
         width:"100%",
         flexDirection: "column",
-        // paddingTop: 25,
         justifyContent: "space-around",
       }
 
@@ -21,7 +20,7 @@ const Banner = () => {
   return (
     <Container className={classes.bannerContent}>
         <Carousel className={classes.Carousel}/>
-    </Container>
+         </Container>
   )
 }
 

@@ -7,11 +7,11 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { Navigate } from "react-router-dom";
-import InstagramIcon from '@mui/icons-material/Instagram';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import InstagramIcon from "@mui/icons-material/Instagram";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const Footer = () => {
   const useStyles = makeStyles(() => ({
@@ -35,11 +35,12 @@ const Footer = () => {
         height: "40vh",
         paddingBlock: "40px",
         display: "flex",
+        bottom:"0px",
         flexDirection: "row",
       }}
     >
       {/* <div style={{ flex: 1, display: "flex", flexDirection: "column" }}> */}
-        {/* <div style={{ flex: 1 }}>
+      {/* <div style={{ flex: 1 }}>
           <Typography
             className={classes.title}
             onClick={() => Navigate("/")}
@@ -55,12 +56,11 @@ const Footer = () => {
           <Typography style={{ fontWeight: "600", paddingTop: 10 }}>
             © 2022 G-Tracker
           </Typography> */}
-        {/* </div> */}
       {/* </div> */}
-      
+      {/* </div> */}
       <div
         style={{
-          flex: 1,
+          flex: 2,
           display: "flex",
           flexDirection: "column",
           paddingLeft: "10px",
@@ -90,38 +90,52 @@ const Footer = () => {
 
       <div
         style={{
-          flex: 2,
+          flex: 3,
           display: "flex",
           flexDirection: "column",
           paddingLeft: "1px",
+          width: "60%",
         }}
+      > <div>
+      <Typography
+        className={classes.title}
+        onClick={() => Navigate("/")}
+        variant="h6"
+        padding="10px"
+        style={{ color: "black" }}
+        align="center"
       >
-          <Typography style={{marginBlock:"20px"}} align="center">
-              Connect With Us
-              </Typography>
-          <div style={{display:"flex",flexDirection:"row"}}>
-       <Button style={{flex:"1"}} align="center"><InstagramIcon fontSize="large" /></Button>
-       <Button style={{flex:"1"}}align="center"><MailOutlineIcon fontSize="large" /></Button>
-       <Button style={{flex:"1"}}align="center"><TwitterIcon fontSize="large" /></Button>
-       <Button style={{flex:"1"}}align="center"><LinkedInIcon fontSize="large" /></Button>
-       <Button style={{flex:"1"}}align="center"><GitHubIcon fontSize="large" /></Button>
+        G-Tracker
+      </Typography>
+    </div>
+        <Typography style={{ marginBlock: "20px" }} align="center">
+          Connect With Us
+        </Typography>
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <Button style={{ flex: "1" }} align="center">
+            <InstagramIcon fontSize="large" />
+          </Button>
+          <Button style={{ flex: "1" }} align="center">
+            <MailOutlineIcon fontSize="large" />
+          </Button>
+          <Button style={{ flex: "1" }} align="center">
+            <TwitterIcon fontSize="large" />
+          </Button>
+          <Button style={{ flex: "1" }} align="center">
+            <LinkedInIcon fontSize="large" />
+          </Button>
+          <Button style={{ flex: "1" }} align="center">
+            <GitHubIcon fontSize="large" />
+          </Button>
         </div>
+       
         <div>
-        <Typography
-            className={classes.title}
-            onClick={() => Navigate("/")}
-            variant="h6"
-            padding="10px"
-            style={{ color: "black" }}
+          <Typography
+            style={{ fontWeight: "600", paddingTop: 10 }}
             align="center"
           >
-            G-Tracker
-          </Typography>
-        </div>
-        <div>
-        <Typography style={{ fontWeight: "600", paddingTop: 10 }} align="center">
             © 2022 G-Tracker
-          </Typography> 
+          </Typography>
         </div>
       </div>
     </Container>

@@ -1,8 +1,11 @@
 import React from 'react'
+import Banner from '../Component/DetailView/Banner'
 
 function Detailview() {
   return (
-    <div>Detailview</div>
+    <div>
+      <Banner/>
+    </div>
   )
 }
 

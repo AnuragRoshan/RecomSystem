@@ -9,6 +9,7 @@ import Header from "./Component/Header";
 
 import { makeStyles } from '@material-ui/core'
 import Footer from "./Component/Footer";
+import Detailview from "./Pages/Detailview";
 
 
 
@@ -17,8 +18,11 @@ function App() {
     App: {
       display: "flex",
       flexDirection: "column",
-      minHeight: '100vh'
+      // minHeight: '100vh'
     },
+    footer:{
+      bottom:0
+    }
 
   }))
 
@@ -30,11 +34,12 @@ function App() {
         <Routes>
 
           < Route exact path="/" element={<Home />} />
+          <Route path="/details/:id" element={<Detailview/>} />
           < Route exact path="/signup" element={<Signup />} />
           < Route exact path="/login" element={<Login />} />
 
         </Routes>
-        <Footer />
+        <Footer className={classes.footer}/>
 
 
       </div>
