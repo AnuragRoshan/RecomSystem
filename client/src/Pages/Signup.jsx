@@ -7,12 +7,14 @@ import { useState } from 'react';
 function Signup() {
     const [registerUsername, setRegisterUsername] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
+    const [registerEmail, setRegisterEmail] = useState("");
 
     const register = () => {
         Axios({
           method: "POST",
           data: {
             username: registerUsername,
+            email: registerEmail,
             password: registerPassword,
           },
           withCredentials: true,
@@ -26,6 +28,10 @@ function Signup() {
         <input
           placeholder="username"
           onChange={(e) => setRegisterUsername(e.target.value)}
+        />
+        <input
+          placeholder="email"
+          onChange={(e) => setRegisterEmail(e.target.value)}
         />
         <input
           placeholder="password"

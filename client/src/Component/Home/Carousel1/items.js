@@ -1,6 +1,6 @@
 import React from 'react';
 const handleDragStart = (e) => e.preventDefault();
-export const  imag = [
+const  imag = [
    <img src="https://cdn.wallpapersafari.com/69/85/TW7oM9.jpg" 
     onDragStart={handleDragStart} role="presentation"
      width="100%" height="648" 
@@ -16,3 +16,4 @@ export const  imag = [
     name="fifad"
     />,
   ]
+  export default imag;

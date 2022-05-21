@@ -1,36 +1,24 @@
-import { makeStyles } from "@material-ui/core";
-import React from "react";
+import { Button, Link, makeStyles } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
 import "react-alice-carousel/lib/alice-carousel.css";
 import AliceCarousel from "react-alice-carousel";
-// import imag from "./items";
+import imag from "./items";
+import Axios from "axios";
+import dotenv from "dotenv";
+import { img_300 } from "../../../Config/Config";
+
 const handleDragStart = (e) => e.preventDefault();
-const items = [
-  <img
-    src="https://cdn.wallpapersafari.com/69/85/TW7oM9.jpg"
-    onDragStart={handleDragStart}
-    role="presentation"
-    width="100%"
-    height="648"
-    alt="hello"
-  />,
-  <img
-    src="https://images7.alphacoders.com/111/1117602.jpg"
-    onDragStart={handleDragStart}
-    role="presentation"
-    width="100%"
-    height="648"
-    alt="hello"
-  />,
-  <img
-    src="https://cdn.99images.com/photos/wallpapers/games/4k-gta-5%20android-iphone-desktop-hd-backgrounds-wallpapers-1080p-4k-lnvjs.jpg"
-    alt="hello"
-    onDragStart={handleDragStart}
-    role="presentation"
-    width="100%"
-    height="648"
-  />,
-];
+
 // console.log(imag);
+// const items = imag.map((coin) => {
+//   // let profit = coin?.price_change_percentage_24h >= 0;
+//   return (
+//     <Link className={classes.carouselItem} to={`/`}>
+//       <img src={coin.src} alt={coin.alt} height="648" width="100%" />
+//     </Link>
+//   );
+
+// });
 
 const Carousel = () => {
   const useStyles = makeStyles(() => ({
@@ -44,12 +32,41 @@ const Carousel = () => {
 
   const classes = useStyles();
 
+  const [content, setContent] = useState([]);
+  const fetchTrending = async () => {
+    const { data } = await Axios.get(
+      `https://api.themoviedb.org/3/trending/all/day?api_key=b9e11d2c8939104a4a755544e4eb8847`
+    );
+    console.log(data.results);
+    console.log(data.results.poster_path);
+    setContent(data.results);
+  };
+
+  useEffect(() => {
+    // window.scroll(0, 0);
+    fetchTrending();
+    // eslint-disable-next-line
+  }, []);
+  const items = content.filter((c,index)=>index<6).map((c) => (
+    <div style={{ paddingInline: "0.5rem" }}>
+      <img
+        src={`${img_300}/${c.poster_path}`}
+        onDragStart={handleDragStart}
+        // role="presentation"
+        width="100%"
+        height="558"
+        alt="hello"
+      />
+      <Button style={{position:"absolute",top: "90%"
+  ,right: "5%",backgroundColor:"#19275e",color:"white",paddingBlock:"0.8rem"}}>+</Button>
+    </div>
+  ));
   const responsive = {
     0: {
-      items: 1,
+      items: 2,
     },
-    512: {
-      items: 1,
+    700: {
+      items: 3,
     },
   };
 
