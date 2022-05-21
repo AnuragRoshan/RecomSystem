@@ -1,52 +1,85 @@
-import { Button, makeStyles } from '@material-ui/core';
-import React from 'react'
-import 'react-alice-carousel/lib/alice-carousel.css';
+import { Button, Link, makeStyles } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import "react-alice-carousel/lib/alice-carousel.css";
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import AliceCarousel from "react-alice-carousel"
+import AliceCarousel from "react-alice-carousel";
+// import imag from "./items";
+import Axios from "axios";
+import dotenv from "dotenv";
+import { img_300 } from "../../../Config/Config";
+
 const handleDragStart = (e) => e.preventDefault();
-const items = [
-   <img src="https://wallpapercave.com/dwp2x/wp6940880.jpg" 
-    onDragStart={handleDragStart} role="presentation"
-     width="100%" height="250" 
-      alt='hello'
-      />
-      ,
-    <img src="https://cdn.wallpapersafari.com/69/85/TW7oM9.jpg" onDragStart={handleDragStart} role="presentation" width="100%" height="250"    alt='hello'/>,
-    <img src="https://wallpapercave.com/dwp2x/wp4523743.png" alt='hello' onDragStart={handleDragStart} role="presentation" width="100%" height="250"  />,
-    <img src="https://images.wallpapersden.com/image/download/rocket-league-hd-the-batman_bWZubmiUmZqaraWkpJRmbmdlrWZlbWU.jpg" alt='hello' onDragStart={handleDragStart} role="presentation" width="100%" height="250"  />,
-  ];
 
-const Carousel = () => {
-      const useStyles = makeStyles(() => ({
-              carousel:{
-                  marginTop:"32px",
-                  height:"220px",
-                  width:"100%",
-                  display:"flex",
-                  alignItems:"center",
-              }
-          }));
-      
-      const classes=useStyles();
+// console.log(imag);
+// const items = imag.map((coin) => {
+//   // let profit = coin?.price_change_percentage_24h >= 0;
+//   return (
+//     <Link className={classes.carouselItem} to={`/`}>
+//       <img src={coin.src} alt={coin.alt} height="648" width="100%" />
+//     </Link>
+//   );
 
-      const responsive={
-          0:{
-              items:1,
-          },
-          512:{
-              items:2
-          },
-          1000:{
-              items:3
-          }
-          }
+// });
 
-      
+const Carousel4 = () => {
+  const useStyles = makeStyles(() => ({
+    carousel: {
+      marginTop: "42px",
+      height: "270px",
+      width: "100%",
+      display: "flex",
+      alignItems: "center",
+    },
+  }));
+
+  const classes = useStyles();
+
+  const [content, setContent] = useState([]);
+  const fetchTrending = async () => {
+    const { data } = await Axios.get(
+      `https://api.themoviedb.org/3/discover/movie?with_genres=28&primary_release_year=2021&primary_release_year=2021&api_key=b9e11d2c8939104a4a755544e4eb8847`
+    );
+    console.log(data.results);
+    console.log(data.results.poster_path);
+    setContent(data.results);
+  };
+
+  useEffect(() => {
+    // window.scroll(0, 0);
+    fetchTrending();
+    // eslint-disable-next-line
+  }, []);
+  const items = content.map((c) => (
+    // return(
+    <Link to={`/signup`}>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ paddingInline: "0.5rem" }}>
+          <img
+            src={`${img_300}/${c.poster_path}`}
+            onDragStart={handleDragStart}
+            role="presentation"
+            width="100%"
+            height="290"
+            alt={`${c.title}`}
+          />
+        </div>
+      </div>
+    </Link>
+    // );
+  ));
+  const responsive = {
+    0: {
+      items: 5,
+    },
+    512: {
+      items: 5,
+    },
+  };
 
   return (
     <div className={classes.carousel}>
-       <AliceCarousel
+      <AliceCarousel
          mouseTracking
          disableDotsControls
          // disableButtonsControls  // ---> also remove this
@@ -64,9 +97,9 @@ const Carousel = () => {
          renderNextButton={() => {
            return <Button className="p-4 absolute right-0 top-0" style={{marginInline:"20px",color:"white"}}><KeyboardDoubleArrowRightIcon fontSize='large'/></Button>
          }}
-        />
+      />
     </div>
-  )
-}
+  );
+};
 
-export default Carousel
+export default Carousel4;

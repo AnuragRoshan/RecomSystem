@@ -2,11 +2,11 @@ import { Container, Typography } from '@material-ui/core'
 import React from 'react'
 import Carousel2 from './Carousel2/Carousel2'
 
-const Todaystop = () => {
+const LatestNTrending = () => {
   return (
    <>
    
-   <Container style={{marginTop:"22rem"}}>
+   <Container style={{marginTop:"6.1rem"}}>
     <Typography 
     
     variant="h5"
@@ -22,4 +22,4 @@ const Todaystop = () => {
         )
 }
 
-export default Todaystop
+export default LatestNTrending

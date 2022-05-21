@@ -9,6 +9,7 @@ import { makeStyles } from '@material-ui/core'
 import Footer from "./Component/Footer";
 import Detailview from "./Pages/Detailview";
 import { initialState, reducer } from "./Usereducer/Usereducer";
+import TrendingToday from "./Pages/TrendingToday";
 
 
 export const userContext=createContext();
@@ -39,6 +40,7 @@ function App() {
           < Route exact path="/" element={<Home />} />
           <Route path="/details" element={<Detailview/>} />
           < Route exact path="/signup" element={<Signup />} />
+          < Route exact path="/trending" element={<TrendingToday />} />
           < Route exact path="/login" element={<Login />} />
 
         </Routes>

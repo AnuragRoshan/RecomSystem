@@ -2,7 +2,7 @@ import { Container, Typography } from "@material-ui/core";
 import React from "react";
 import Carousel4 from "./Carousel4/Carousel4";
 
-export const SportsSection = () => {
+export const Action = () => {
   return (
     <Container style={{ marginTop: "6.1rem" }}>
       <Typography
@@ -14,11 +14,11 @@ export const SportsSection = () => {
           paddingTop: "32px",
         }}
       >
-        Sports
+        Action
       </Typography>
       <Carousel4 />
     </Container>
   );
 };
 
-export default SportsSection;
+export default Action;

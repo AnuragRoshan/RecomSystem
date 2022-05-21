@@ -22,7 +22,7 @@ const handleDragStart = (e) => e.preventDefault();
 
 // });
 
-const Carousel3 = () => {
+const Carousel5 = () => {
   const useStyles = makeStyles(() => ({
     carousel: {
       marginTop: "42px",
@@ -38,7 +38,7 @@ const Carousel3 = () => {
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/discover/movie?with_genres=16&primary_release_year=2021&api_key=b9e11d2c8939104a4a755544e4eb8847`
+      `https://api.themoviedb.org/3/discover/movie?with_genres=878&primary_release_year=2021&primary_release_year=2021&api_key=b9e11d2c8939104a4a755544e4eb8847`
     );
     console.log(data.results);
     console.log(data.results.poster_path);
@@ -102,4 +102,4 @@ const Carousel3 = () => {
   );
 };
 
-export default Carousel3;
+export default Carousel5;

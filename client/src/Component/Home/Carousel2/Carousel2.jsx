@@ -22,7 +22,7 @@ const handleDragStart = (e) => e.preventDefault();
 
 // });
 
-const Carousel = () => {
+const Carousel2 = () => {
   const useStyles = makeStyles(() => ({
     carousel: {
       marginTop: "42px",
@@ -102,4 +102,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default Carousel2;

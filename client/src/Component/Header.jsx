@@ -90,7 +90,7 @@ export default function Header() {
           <Button
            className={classes.btn}
             style={{ color: navTextCol, margin: "0rem" }}
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/trending")}
           >
             Trending Today
           </Button>

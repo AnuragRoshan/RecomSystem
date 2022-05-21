@@ -19,6 +19,7 @@ const Banner = () => {
   return (
     <Container className={classes.bannerContent}>
       <Carousel className={classes.Carousel} />
+
     </Container>
   );
 };

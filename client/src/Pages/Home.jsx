@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import Banner from "../Component/Home/Banner";
-import { Recommended4u } from "../Component/Home/Recommended4u";
-import Todaystop from "../Component/Home/Todaystop";
-import SportsSection from "../Component/Home/SportsSection";
+import { Kids} from "../Component/Home/Kids";
+import Todaystop from "../Component/Home/LatestNTrending";
+import Action from "../Component/Home/Action";
 import { userContext } from "../App";
+import ScienceFiction from "../Component/Home/ScienceFiction";
 // import React from 'react'
 // import Axios from 'axios';
 // import { useState } from 'react';
@@ -50,9 +51,10 @@ const Home = () => {
     <div>
       {/* {state ? <h1>hello</h1> : <h4>no</h4>} */}
       <Banner />
+      <Kids />
+      <ScienceFiction />
       <Todaystop />
-      <Recommended4u />
-      <SportsSection />
+      <Action />
     </div>
   );
 };
