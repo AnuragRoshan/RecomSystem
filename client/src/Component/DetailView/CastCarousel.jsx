@@ -7,8 +7,8 @@ import AliceCarousel from "react-alice-carousel";
 // import imag from "./items";
 import Axios from "axios";
 import dotenv from "dotenv";
-import { img_300 } from "../../../Config/Config";
-import { useNavigate } from "react-router-dom";
+import { img_300 } from "../../Config/Config";
+import { useNavigate, useParams } from "react-router-dom";
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -23,7 +23,7 @@ const handleDragStart = (e) => e.preventDefault();
 
 // });
 
-const Carousel2 = () => {
+const RecmCarousel = () => {
   const useStyles = makeStyles(() => ({
     carousel: {
       marginTop: "42px",
@@ -33,16 +33,18 @@ const Carousel2 = () => {
       alignItems: "center",
     },
   }));
-
+  const {id}=useParams()
   const navigate=useNavigate()
   const classes = useStyles();
 
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=b9e11d2c8939104a4a755544e4eb8847`
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
     );
-    setContent(data.results);
+    // console.log(data.cast);
+    // console.log(data.results.poster_path);
+    setContent(data.cast);
   };
 
   useEffect(() => {
@@ -52,26 +54,35 @@ const Carousel2 = () => {
   }, []);
   const items = content.map((c) => (
     // return(
-      <Button onClick={() => navigate(`/detail/${c.id}`)}  >
+      <Button onClick={() => navigate(`/casts/${c.id}`)} width="119%" >
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ paddingInline: "0.5rem" }}>
           <img
-            src={`${img_300}/${c.poster_path}`}
+            src={`${img_300}/${c.profile_path}`}
             onDragStart={handleDragStart}
             role="presentation"
             width="100%"
             height="290"
-            alt={`${c.title}`}
+            // alt={`${c.title}`}
           />
         </div>
-        <div>
-              <Typography style={{ color: "white",marginTop:"1rem"  }}>
-                {`${c.title}`.length > 20 ? (
-                  <div>{`${`${c.title}`.substring(0, 20)}...`}</div>
+        <div >
+              <Typography style={{ color: "white",marginTop:"1rem",fontSize:"25px"  }}>
+                {`${c.name}`.length > 13 ? (
+                  <div>{`${`${c.name}`.substring(0, 13)}...`}</div>
                 ) : (
-                  <p>{`${c.title}`}</p>
+                  <p>{`${c.name}`}</p>
                 )}
               </Typography>
+              <div style={{ color: "white" , fontSize:"10px" }}>
+              as
+              
+                {`${c.character}`.length > 25 ? (
+                  <div>{`${`${c.character}`.substring(0, 25)}...`}</div>
+                ) : (
+                  <p>{`${c.character}`}</p>
+                )}
+              </div>
             </div>
       </div>
     </Button>
@@ -128,4 +139,4 @@ const Carousel2 = () => {
   );
 };
 
-export default Carousel2;
+export default RecmCarousel;

@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const app = express();
+const wishlistController = require("./Routes/wishlist.controller")
 // const User = require("./Models/user");
 const authRoutes = require("./Routes/auth")
 //----------------------------------------- END OF IMPORTS---------------------------------------------------

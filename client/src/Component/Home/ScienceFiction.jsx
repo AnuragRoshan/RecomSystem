@@ -10,7 +10,7 @@ const ScienceFiction = () => {
     <Typography 
     
     variant="h5"
-    style={{  fontFamily: "Montserrat",fontWeight:"700" , color:"white",paddingTop:"32px"}}>
+    style={{  fontFamily: "Montserrat",fontWeight:"700" , color:"white",paddingTop:"52px"}}>
      Science Fiction
     </Typography>
       <Carousel5/>

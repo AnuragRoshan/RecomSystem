@@ -1,17 +1,15 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
-import DetailBanner from '../Component/DetailView/DetailBanner';
+import CastDetailBanner from "../Component/CastDetail/CastDetailBanner"
 
 
-function Detailview() {
+function CastDetail() {
   const { id } = useParams();
   return (
     <div style={{color:"white",marginTop:"88px"}}>
-      {/* <Banner/> */}
-      <DetailBanner/>
-      {/* <Info/> */}
+      <CastDetailBanner/>
     </div>
   )
 }
 
-export default Detailview
+export default CastDetail

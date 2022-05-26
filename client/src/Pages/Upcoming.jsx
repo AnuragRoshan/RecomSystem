@@ -9,7 +9,7 @@ const TrendingToday = () => {
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/trending/movie/day?api_key=b9e11d2c8939104a4a755544e4eb8847`
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US&page=1`
     );
     console.log(data);
 
@@ -33,7 +33,7 @@ const TrendingToday = () => {
           paddingBlock: "32px",
         }}
       >
-        Today's Hot Chart
+        Upcoming Movies
       </Typography>
       <div
         style={{
@@ -46,7 +46,7 @@ const TrendingToday = () => {
       >
         {content.map((c) => (
           < Button onClick={() => navigate(`/detail/${c.id}`)}>
-          <div style={{ paddingRight: "0.5rem", paddingBlock: "1.5rem" }}>
+          <div style={{ paddingRight: "0.5rem", paddingBlock: "1.5rem" ,color:"white"}}>
             <img
               src={`${img_300}/${c.poster_path}`}
               // onDragStart={handleDragStart}
@@ -66,7 +66,7 @@ const TrendingToday = () => {
               </Typography>
             </div>
             <div>
-              <Rating name="read-only" value={c.vote_average / 2} readOnly />
+                release date : {c.release_date}
             </div>
           </div>
           </Button>

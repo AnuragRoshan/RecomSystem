@@ -7,8 +7,8 @@ import AliceCarousel from "react-alice-carousel";
 // import imag from "./items";
 import Axios from "axios";
 import dotenv from "dotenv";
-import { img_300 } from "../../../Config/Config";
-import { useNavigate } from "react-router-dom";
+import { img_300 } from "../../Config/Config";
+import { useNavigate, useParams } from "react-router-dom";
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -23,7 +23,7 @@ const handleDragStart = (e) => e.preventDefault();
 
 // });
 
-const Carousel2 = () => {
+const RecmCarousel = () => {
   const useStyles = makeStyles(() => ({
     carousel: {
       marginTop: "42px",
@@ -33,49 +33,37 @@ const Carousel2 = () => {
       alignItems: "center",
     },
   }));
-
-  const navigate=useNavigate()
+  const {id}=useParams()
+  let navigate=useNavigate()
   const classes = useStyles();
 
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=b9e11d2c8939104a4a755544e4eb8847`
+      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US&page=1`
     );
+    console.log(data.results);
+    console.log(data.results.poster_path);
     setContent(data.results);
   };
 
   useEffect(() => {
-    // window.scroll(0, 0);
     fetchTrending();
-    // eslint-disable-next-line
   }, []);
-  const items = content.map((c) => (
-    // return(
-      <Button onClick={() => navigate(`/detail/${c.id}`)}  >
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <div style={{ paddingInline: "0.5rem" }}>
-          <img
-            src={`${img_300}/${c.poster_path}`}
-            onDragStart={handleDragStart}
-            role="presentation"
-            width="100%"
-            height="290"
-            alt={`${c.title}`}
-          />
-        </div>
-        <div>
-              <Typography style={{ color: "white",marginTop:"1rem"  }}>
-                {`${c.title}`.length > 20 ? (
-                  <div>{`${`${c.title}`.substring(0, 20)}...`}</div>
-                ) : (
-                  <p>{`${c.title}`}</p>
-                )}
-              </Typography>
-            </div>
-      </div>
-    </Button>
-    // );
+  const items = content.filter((c,index)=>index<10).map((c) => (
+    <Button onClick={() => navigate(`/detail/${c.id}`)}  >
+    <div style={{ paddingInline: "0.5rem" }}>
+     
+      <img
+         src={`${img_300}/${c.poster_path}`}
+         onDragStart={handleDragStart}
+         role="presentation"
+         width="100%"
+         height="290"
+         alt={`${c.title}`}
+      />
+    </div>
+  </Button>
   ));
   const responsive = {
     0: {
@@ -128,4 +116,4 @@ const Carousel2 = () => {
   );
 };
 
-export default Carousel2;
+export default RecmCarousel;

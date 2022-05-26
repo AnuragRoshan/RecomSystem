@@ -1,4 +1,4 @@
-import { Button, Link, makeStyles } from "@material-ui/core";
+import { Button, Link, makeStyles, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import "react-alice-carousel/lib/alice-carousel.css";
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
@@ -8,6 +8,7 @@ import AliceCarousel from "react-alice-carousel";
 import Axios from "axios";
 import dotenv from "dotenv";
 import { img_300 } from "../../../Config/Config";
+import { useNavigate } from "react-router-dom";
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -33,6 +34,7 @@ const Carousel3 = () => {
     },
   }));
 
+  const navigate=useNavigate()
   const classes = useStyles();
 
   const [content, setContent] = useState([]);
@@ -40,8 +42,6 @@ const Carousel3 = () => {
     const { data } = await Axios.get(
       `https://api.themoviedb.org/3/discover/movie?with_genres=16&primary_release_year=2021&api_key=b9e11d2c8939104a4a755544e4eb8847`
     );
-    console.log(data.results);
-    console.log(data.results.poster_path);
     setContent(data.results);
   };
 
@@ -52,8 +52,8 @@ const Carousel3 = () => {
   }, []);
   const items = content.map((c) => (
     // return(
-    <Link to={`/signup`}>
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <Button onClick={() => navigate(`/detail/${c.id}`)}  >
+      <div style={{ display: "flex", flexDirection: "column"}}>
         <div style={{ paddingInline: "0.5rem" }}>
           <img
             src={`${img_300}/${c.poster_path}`}
@@ -64,17 +64,29 @@ const Carousel3 = () => {
             alt={`${c.title}`}
           />
         </div>
+        <div>
+              <Typography style={{ color: "white" ,marginTop:"1rem" }}>
+                {`${c.title}`.length > 20 ? (
+                  <div>{`${`${c.title}`.substring(0, 20)}...`}</div>
+                ) : (
+                  <p>{`${c.title}`}</p>
+                )}
+              </Typography>
+            </div>
       </div>
-    </Link>
+    </Button>
     // );
   ));
   const responsive = {
     0: {
-      items: 5,
+      items: 2,
     },
     512: {
-      items: 5,
+      items: 3,
     },
+    900:{
+      items:5,
+    }
   };
 
   return (

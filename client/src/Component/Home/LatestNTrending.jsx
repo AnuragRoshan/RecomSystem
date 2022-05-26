@@ -10,7 +10,7 @@ const LatestNTrending = () => {
     <Typography 
     
     variant="h5"
-    style={{  fontFamily: "Montserrat",fontWeight:"700" , color:"white",paddingTop:"32px"}}>
+    style={{  fontFamily: "Montserrat",fontWeight:"700" , color:"white",paddingTop:"52px"}}>
      Latest and Trending
     </Typography>
       <Carousel2/>

@@ -84,15 +84,22 @@ export default function Header() {
             G-Tracker
           </Typography>
           <Button   className={classes.btn} style={{ margin: "2rem" }}>Ranking</Button>
-          <Button  className={classes.btn} style={{ marginRight: "2rem" }}>
+          {/* <Button  className={classes.btn} style={{ marginRight: "2rem" }}>
             Watchlist
+          </Button> */}
+          <Button
+           className={classes.btn}
+            style={{ color: navTextCol, marginRight: "2rem" }}
+            onClick={() => navigate("/trending")}
+          >
+            Trending Today
           </Button>
           <Button
            className={classes.btn}
             style={{ color: navTextCol, margin: "0rem" }}
-            onClick={() => navigate("/trending")}
+            onClick={() => navigate("/upcoming")}
           >
-            Trending Today
+             Upcoming
           </Button>
           <TextField
            InputLabelProps={{
@@ -112,7 +119,8 @@ export default function Header() {
               color: setNavTextCol,
             }}
           />
-          <Button
+          {/* <Link to="/login"> */}
+          <Button onClick={() => navigate("/login")}
           className={classes.btn}
             style={{ marginLeft: "2rem", height: "3rem" ,paddingBlock:loginpadding }}
             >
@@ -121,6 +129,7 @@ export default function Header() {
             <div><Typography>Login</Typography></div>
             </div>
           </Button>
+          {/* </Link> */}
         </Toolbar>
       </AppBar>
     </>

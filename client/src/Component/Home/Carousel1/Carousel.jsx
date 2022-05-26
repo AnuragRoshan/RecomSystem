@@ -6,6 +6,7 @@ import imag from "./items";
 import Axios from "axios";
 import dotenv from "dotenv";
 import { img_300 } from "../../../Config/Config";
+import { useNavigate } from "react-router-dom";
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -31,7 +32,7 @@ const Carousel = () => {
   }));
 
   const classes = useStyles();
-
+  const navigate= useNavigate()
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
@@ -43,12 +44,12 @@ const Carousel = () => {
   };
 
   useEffect(() => {
-    // window.scroll(0, 0);
     fetchTrending();
-    // eslint-disable-next-line
   }, []);
   const items = content.filter((c,index)=>index<6).map((c) => (
+    <Button onClick={() => navigate(`/detail/${c.id}`)}  >
     <div style={{ paddingInline: "0.5rem" }}>
+     
       <img
         src={`${img_300}/${c.poster_path}`}
         onDragStart={handleDragStart}
@@ -57,9 +58,8 @@ const Carousel = () => {
         height="558"
         alt="hello"
       />
-      <Button style={{position:"absolute",top: "90%"
-  ,right: "5%",backgroundColor:"#19275e",color:"white",paddingBlock:"0.8rem"}}>+</Button>
     </div>
+  </Button>
   ));
   const responsive = {
     0: {

@@ -1,4 +1,4 @@
-import { Button, Link, makeStyles } from "@material-ui/core";
+import { Button, Link, makeStyles, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import "react-alice-carousel/lib/alice-carousel.css";
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
@@ -8,6 +8,7 @@ import AliceCarousel from "react-alice-carousel";
 import Axios from "axios";
 import dotenv from "dotenv";
 import { img_300 } from "../../../Config/Config";
+import { useNavigate } from "react-router-dom";
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -34,14 +35,12 @@ const Carousel5 = () => {
   }));
 
   const classes = useStyles();
-
+  const navigate=useNavigate()
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
       `https://api.themoviedb.org/3/discover/movie?with_genres=878&primary_release_year=2021&primary_release_year=2021&api_key=b9e11d2c8939104a4a755544e4eb8847`
     );
-    console.log(data.results);
-    console.log(data.results.poster_path);
     setContent(data.results);
   };
 
@@ -52,7 +51,7 @@ const Carousel5 = () => {
   }, []);
   const items = content.map((c) => (
     // return(
-    <Link to={`/signup`}>
+      <Button onClick={() => navigate(`/detail/${c.id}`)}  >
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ paddingInline: "0.5rem" }}>
           <img
@@ -64,8 +63,17 @@ const Carousel5 = () => {
             alt={`${c.title}`}
           />
         </div>
+        <div>
+              <Typography style={{ color: "white",marginTop:"1rem"  }}>
+                {`${c.title}`.length > 20 ? (
+                  <div>{`${`${c.title}`.substring(0, 20)}...`}</div>
+                ) : (
+                  <p>{`${c.title}`}</p>
+                )}
+              </Typography>
+            </div>
       </div>
-    </Link>
+    </Button>
     // );
   ));
   const responsive = {

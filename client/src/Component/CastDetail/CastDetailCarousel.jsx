@@ -7,8 +7,8 @@ import AliceCarousel from "react-alice-carousel";
 // import imag from "./items";
 import Axios from "axios";
 import dotenv from "dotenv";
-import { img_300 } from "../../../Config/Config";
-import { useNavigate } from "react-router-dom";
+import { img_300 } from "../../Config/Config";
+import { useNavigate, useParams } from "react-router-dom";
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -36,13 +36,15 @@ const Carousel2 = () => {
 
   const navigate=useNavigate()
   const classes = useStyles();
+  const {id}= useParams()
 
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=b9e11d2c8939104a4a755544e4eb8847`
+      `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
     );
-    setContent(data.results);
+    setContent(data.cast);
+    console.log(data.cast);
   };
 
   useEffect(() => {

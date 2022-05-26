@@ -1,13 +1,14 @@
-import { Button, Link, makeStyles } from "@material-ui/core";
+import { Button, Link, makeStyles, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import "react-alice-carousel/lib/alice-carousel.css";
-import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
+import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import AliceCarousel from "react-alice-carousel";
 // import imag from "./items";
 import Axios from "axios";
 import dotenv from "dotenv";
 import { img_300 } from "../../../Config/Config";
+import { useNavigate } from "react-router-dom";
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -33,15 +34,14 @@ const Carousel4 = () => {
     },
   }));
 
+  const navigate=useNavigate()
   const classes = useStyles();
 
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/discover/movie?with_genres=28&primary_release_year=2021&primary_release_year=2021&api_key=b9e11d2c8939104a4a755544e4eb8847`
+      `https://api.themoviedb.org/3/discover/movie?with_genres=28&primary_release_year=2016&primary_release_year=2016&api_key=b9e11d2c8939104a4a755544e4eb8847`
     );
-    console.log(data.results);
-    console.log(data.results.poster_path);
     setContent(data.results);
   };
 
@@ -52,7 +52,7 @@ const Carousel4 = () => {
   }, []);
   const items = content.map((c) => (
     // return(
-    <Link to={`/signup`}>
+      <Button onClick={() => navigate(`/detail/${c.id}`)}  >
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ paddingInline: "0.5rem" }}>
           <img
@@ -64,15 +64,27 @@ const Carousel4 = () => {
             alt={`${c.title}`}
           />
         </div>
+        <div>
+              <Typography style={{ color: "white",marginTop:"1rem"  }}>
+                {`${c.title}`.length > 20 ? (
+                  <div>{`${`${c.title}`.substring(0, 20)}...`}</div>
+                ) : (
+                  <p>{`${c.title}`}</p>
+                )}
+              </Typography>
+            </div>
       </div>
-    </Link>
+    </Button>
     // );
   ));
   const responsive = {
     0: {
-      items: 5,
+      items: 2,
     },
     512: {
+      items: 3,
+    },
+    900: {
       items: 5,
     },
   };
@@ -80,23 +92,37 @@ const Carousel4 = () => {
   return (
     <div className={classes.carousel}>
       <AliceCarousel
-         mouseTracking
-         disableDotsControls
-         // disableButtonsControls  // ---> also remove this
-         // activeIndex={activeIndex}  // ---> no need to this anymore
-         items={items}
-         responsive={responsive}
-         controlsStrategy="responsive"
-         autoPlay={true}
-         autoPlayInterval={5000}
-         infinite={true}
+        mouseTracking
+        disableDotsControls
+        // disableButtonsControls  // ---> also remove this
+        // activeIndex={activeIndex}  // ---> no need to this anymore
+        items={items}
+        responsive={responsive}
+        controlsStrategy="responsive"
+        autoPlay={true}
+        autoPlayInterval={5000}
+        infinite={true}
         //  keyboardNavigation={true}
-         renderPrevButton={() => {
-           return <Button className="p-4 absolute left-0 top-0" style={{marginInline:"20px",color:"white"}}><KeyboardDoubleArrowLeftIcon  fontSize='large'/></Button>
-         }}
-         renderNextButton={() => {
-           return <Button className="p-4 absolute right-0 top-0" style={{marginInline:"20px",color:"white"}}><KeyboardDoubleArrowRightIcon fontSize='large'/></Button>
-         }}
+        renderPrevButton={() => {
+          return (
+            <Button
+              className="p-4 absolute left-0 top-0"
+              style={{ marginInline: "20px", color: "white" }}
+            >
+              <KeyboardDoubleArrowLeftIcon fontSize="large" />
+            </Button>
+          );
+        }}
+        renderNextButton={() => {
+          return (
+            <Button
+              className="p-4 absolute right-0 top-0"
+              style={{ marginInline: "20px", color: "white" }}
+            >
+              <KeyboardDoubleArrowRightIcon fontSize="large" />
+            </Button>
+          );
+        }}
       />
     </div>
   );
