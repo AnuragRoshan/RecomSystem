@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import Banner from "../Component/Home/Banner";
 import { Kids} from "../Component/Home/Kids";
 import Todaystop from "../Component/Home/LatestNTrending";
 import Action from "../Component/Home/Action";
-import { userContext } from "../App";
 import ScienceFiction from "../Component/Home/ScienceFiction";
 // import React from 'react'
 // import Axios from 'axios';

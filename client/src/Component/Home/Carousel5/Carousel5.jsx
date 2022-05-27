@@ -1,12 +1,11 @@
-import { Button, Link, makeStyles, Typography } from "@material-ui/core";
+import { Button, makeStyles, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import "react-alice-carousel/lib/alice-carousel.css";
-import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
+import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import AliceCarousel from "react-alice-carousel";
 // import imag from "./items";
 import Axios from "axios";
-import dotenv from "dotenv";
 import { img_300 } from "../../../Config/Config";
 import { useNavigate } from "react-router-dom";
 
@@ -35,7 +34,7 @@ const Carousel5 = () => {
   }));
 
   const classes = useStyles();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
@@ -51,7 +50,7 @@ const Carousel5 = () => {
   }, []);
   const items = content.map((c) => (
     // return(
-      <Button onClick={() => navigate(`/detail/${c.id}`)}  >
+    <Button onClick={() => navigate(`/detail/${c.id}`)}>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ paddingInline: "0.5rem" }}>
           <img
@@ -64,14 +63,14 @@ const Carousel5 = () => {
           />
         </div>
         <div>
-              <Typography style={{ color: "white",marginTop:"1rem"  }}>
-                {`${c.title}`.length > 20 ? (
-                  <div>{`${`${c.title}`.substring(0, 20)}...`}</div>
-                ) : (
-                  <p>{`${c.title}`}</p>
-                )}
-              </Typography>
-            </div>
+          <Typography style={{ color: "white", marginTop: "1rem" }}>
+            {`${c.title}`.length > 20 ? (
+              <div>{`${`${c.title}`.substring(0, 20)}...`}</div>
+            ) : (
+              <p>{`${c.title}`}</p>
+            )}
+          </Typography>
+        </div>
       </div>
     </Button>
     // );
@@ -88,23 +87,37 @@ const Carousel5 = () => {
   return (
     <div className={classes.carousel}>
       <AliceCarousel
-         mouseTracking
-         disableDotsControls
-         // disableButtonsControls  // ---> also remove this
-         // activeIndex={activeIndex}  // ---> no need to this anymore
-         items={items}
-         responsive={responsive}
-         controlsStrategy="responsive"
-         autoPlay={true}
-         autoPlayInterval={5000}
-         infinite={true}
+        mouseTracking
+        disableDotsControls
+        // disableButtonsControls  // ---> also remove this
+        // activeIndex={activeIndex}  // ---> no need to this anymore
+        items={items}
+        responsive={responsive}
+        controlsStrategy="responsive"
+        autoPlay={true}
+        autoPlayInterval={5000}
+        infinite={true}
         //  keyboardNavigation={true}
-         renderPrevButton={() => {
-           return <Button className="p-4 absolute left-0 top-0" style={{marginInline:"20px",color:"white"}}><KeyboardDoubleArrowLeftIcon  fontSize='large'/></Button>
-         }}
-         renderNextButton={() => {
-           return <Button className="p-4 absolute right-0 top-0" style={{marginInline:"20px",color:"white"}}><KeyboardDoubleArrowRightIcon fontSize='large'/></Button>
-         }}
+        renderPrevButton={() => {
+          return (
+            <Button
+              className="p-4 absolute left-0 top-0"
+              style={{ marginInline: "20px", color: "white" }}
+            >
+              <KeyboardDoubleArrowLeftIcon fontSize="large" />
+            </Button>
+          );
+        }}
+        renderNextButton={() => {
+          return (
+            <Button
+              className="p-4 absolute right-0 top-0"
+              style={{ marginInline: "20px", color: "white" }}
+            >
+              <KeyboardDoubleArrowRightIcon fontSize="large" />
+            </Button>
+          );
+        }}
       />
     </div>
   );

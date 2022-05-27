@@ -4,24 +4,13 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import AliceCarousel from "react-alice-carousel";
-// import imag from "./items";
 import Axios from "axios";
-import dotenv from "dotenv";
 import { img_300 } from "../../Config/Config";
 import { useNavigate, useParams } from "react-router-dom";
 
 const handleDragStart = (e) => e.preventDefault();
 
-// console.log(imag);
-// const items = imag.map((coin) => {
-//   // let profit = coin?.price_change_percentage_24h >= 0;
-//   return (
-//     <Link className={classes.carouselItem} to={`/`}>
-//       <img src={coin.src} alt={coin.alt} height="648" width="100%" />
-//     </Link>
-//   );
 
-// });
 
 const RecmCarousel = () => {
   const useStyles = makeStyles(() => ({
@@ -82,15 +71,12 @@ const RecmCarousel = () => {
       <AliceCarousel
         mouseTracking
         disableDotsControls
-        // disableButtonsControls  // ---> also remove this
-        // activeIndex={activeIndex}  // ---> no need to this anymore
         items={items}
         responsive={responsive}
         controlsStrategy="responsive"
         autoPlay={true}
         autoPlayInterval={5000}
         infinite={true}
-        //  keyboardNavigation={true}
         renderPrevButton={() => {
           return (
             <Button

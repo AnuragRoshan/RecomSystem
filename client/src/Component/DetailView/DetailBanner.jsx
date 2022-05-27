@@ -1,4 +1,4 @@
-import { Button, Container, Tooltip, Typography } from "@material-ui/core";
+import { Button,  Tooltip, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
@@ -6,6 +6,11 @@ import CastCarousel from "./CastCarousel";
 import Axios from "axios";
 import { img_300 } from "../../Config/Config";
 import RecomCarousel from "./RecomCarousel";
+
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 
 const DetailBanner = () => {
   const { id } = useParams();
@@ -33,6 +38,7 @@ const DetailBanner = () => {
       <div style={{ margin: "50px", display: "flex", flexDirection: "row" }}>
         <div style={{ width: "50%" }}>
           <img
+          alt={content.title}
             src={`${img_300}/${content.poster_path}`}
             height="500px"
             width="100%"
@@ -83,8 +89,8 @@ const DetailBanner = () => {
               </Button>
             </div>
           </div>
-          <div><b> Budget : </b>${content.budget}</div>
-          <div> <b> Gross Collection :</b> ${content.revenue}</div>
+          <div><b> Budget : </b>$ {numberWithCommas (`${content.budget}`)}</div>
+          <div> <b> Gross Collection :</b> $ {numberWithCommas (`${content.revenue}`)}</div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <b> <div >Overview:</div></b>
             <div>

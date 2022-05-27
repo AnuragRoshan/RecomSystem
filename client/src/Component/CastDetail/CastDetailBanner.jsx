@@ -1,4 +1,4 @@
-import { Button, Container, Tooltip, Typography } from "@material-ui/core";
+import {Tooltip, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "./CastDetailCarousel";
@@ -34,6 +34,7 @@ const DetailBanner = () => {
             src={`${img_300}/${content.profile_path}`}
             height="500px"
             width="100%"
+            alt={content.title}
           ></img>
         </div>
         {/* <div

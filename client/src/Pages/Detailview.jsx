@@ -1,10 +1,12 @@
-import React from 'react'
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react'
 import DetailBanner from '../Component/DetailView/DetailBanner';
 
 
 function Detailview() {
-  const { id } = useParams();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+  }, []);
   return (
     <div style={{color:"white",marginTop:"88px"}}>
       {/* <Banner/> */}

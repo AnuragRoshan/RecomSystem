@@ -1,4 +1,4 @@
-import { Button, Link, makeStyles, Typography } from "@material-ui/core";
+import { Button,  makeStyles, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import "react-alice-carousel/lib/alice-carousel.css";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
@@ -6,7 +6,6 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 import AliceCarousel from "react-alice-carousel";
 // import imag from "./items";
 import Axios from "axios";
-import dotenv from "dotenv";
 import { img_300 } from "../../Config/Config";
 import { useNavigate, useParams } from "react-router-dom";
 

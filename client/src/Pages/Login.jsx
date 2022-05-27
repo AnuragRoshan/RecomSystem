@@ -1,49 +1,68 @@
-import React  from "react";
-import Axios from "axios";
-import { useState } from "react";
-// import { userContext } from "../App";
-// import { useNavigate } from "react-router-dom";
+import React from "react";
 
 const Login = () => {
-  // const navigate = useNavigate();
-  const [loginUsername, setLoginUsername] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
 
-  // const { state, dispatch } = useContext(userContext);
-  // console.log(state);
-  const login = async () => {
-    await Axios({
-      method: "POST",
-      data: {
-        username: loginUsername,
-        password: loginPassword,
-      },
-      withCredentials: true,
-      url: "http://localhost:4000/login",
-    }).then((res) =>{ 
-      console.log(res);
-      // if (res.data.user) {
-      //   // dispatch({ type: "user", payload: res.data.user.username });
-      //   navigate("/");
-      // } else {
-      //   console.log("error while logging in");
-      }
-    );
+  const google=()=>{
+    window.open("http://localhost:5000/auth/google","_self")
+  }
 
-    return (
-      <div>
-        <h1>Login</h1>
-        <input
-          placeholder="username"
-          onChange={(e) => setLoginUsername(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          onChange={(e) => setLoginPassword(e.target.value)}
-        />
-        <button onClick={login}>Submit</button>
+
+
+  return (
+    <div
+      style={{
+        color: "white",
+        marginTop: "88px",
+        fontFamily: "Montserrat",
+        alignItems: "center",
+        justifyContent: "center",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <h2 style={{ marginTop: "50px" }}> Login Via Google </h2>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          marginTop: "150px",
+          cursor: "pointer",
+        }}
+        onClick={google}
+      >
+        <div
+          style={{
+            backgroundColor: "white",
+            alignItems: "center",
+            justifyContent: "center",
+            display: "flex",
+            borderRadius: "20px 0 0 20px ",
+          }}
+        >
+          <img
+            style={{ width: "30px", padding: "5px" }}
+            src="https://pngimg.com/uploads/google/google_PNG19630.png"
+            alt="google_login"
+            srcset=""
+          />
+        </div>
+        <div
+          style={{
+            width: "190px",
+            alignItems: "center",
+            justifyContent: "center",
+            display: "flex",
+            backgroundColor: "#4285F4",
+            color: "white",
+            borderRadius: "0px 20px 20px 0px ",
+          }}
+        >
+          {" "}
+          Google
+        </div>
       </div>
-    );
-  };
+    </div>
+  );
 };
+
 export default Login;

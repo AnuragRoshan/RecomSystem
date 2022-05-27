@@ -1,5 +1,4 @@
 import { Button, Container, Typography } from "@material-ui/core";
-import { Rating } from "@mui/material";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import {  useNavigate } from "react-router-dom";
@@ -9,7 +8,7 @@ const TrendingToday = () => {
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US&page=7`
     );
     console.log(data);
 

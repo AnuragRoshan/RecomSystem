@@ -1,10 +1,8 @@
-import { Button, Link, makeStyles } from "@material-ui/core";
+import { Button, makeStyles } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import "react-alice-carousel/lib/alice-carousel.css";
 import AliceCarousel from "react-alice-carousel";
-import imag from "./items";
 import Axios from "axios";
-import dotenv from "dotenv";
 import { img_300 } from "../../../Config/Config";
 import { useNavigate } from "react-router-dom";
 
