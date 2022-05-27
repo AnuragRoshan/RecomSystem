@@ -34,10 +34,10 @@ const Carousel = () => {
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=b9e11d2c8939104a4a755544e4eb8847`
+      `https://api.themoviedb.org/3/discover/movie?with_genres=878&primary_release_year=2016&api_key=b9e11d2c8939104a4a755544e4eb8847`
     );
-    console.log(data.results);
-    console.log(data.results.poster_path);
+    // console.log(data.results);
+    // console.log(data.results.poster_path);
     setContent(data.results);
   };
 

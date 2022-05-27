@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import "./style.css";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function Header({ user }) {
   const [navSize, setnavSize] = useState("5.5rem");
@@ -44,6 +45,14 @@ export default function Header({ user }) {
 
   // ****************************logout functionality end**********************************
 
+  //**************************Search Part Start***************************************/
+
+  const [searchText, setSearchText] = useState("");
+  // const str=searchText
+
+  
+  //**************************Search Part End***************************************/
+
   const useStyles = makeStyles(() => ({
     body: {
       color: "pink",
@@ -65,6 +74,12 @@ export default function Header({ user }) {
         color: navTextCol,
       },
     },
+    multilineColor:{
+      color: navTextCol,
+      "&.Mui-focused": {
+        color: navTextCol,
+      },
+  }
   }));
   const classes = useStyles();
   const navigate = useNavigate();
@@ -91,17 +106,17 @@ export default function Header({ user }) {
             variant="h6"
             style={{ color: navTextCol }}
           >
-            G-Tracker
+            MoviesVerse
           </Typography>
-          <Button className={classes.btn} style={{ margin: "2rem" }}>
+          {/* <Button className={classes.btn} style={{ margin: "2rem" }}>
             Ranking
-          </Button>
+          </Button> */}
           {/* <Button  className={classes.btn} style={{ marginRight: "2rem" }}>
             Watchlist
           </Button> */}
           <Button
             className={classes.btn}
-            style={{ color: navTextCol, marginRight: "2rem" }}
+            style={{ color: navTextCol, marginInline: "2rem" }}
             onClick={() => navigate("/trending")}
           >
             Trending Today
@@ -115,10 +130,10 @@ export default function Header({ user }) {
           </Button>
           <TextField
             InputLabelProps={{
-              classes: {
-                root: classes.cssLabel,
-                focused: classes.cssFocused,
-              },
+              classes: { root: classes.cssLabel, focused: classes.cssFocused },
+            }}
+            InputProps={{
+              className: classes.multilineColor
             }}
             id="outlined-search"
             label="Search Movies Here"
@@ -129,19 +144,27 @@ export default function Header({ user }) {
               flex: "1",
               color: setNavTextCol,
             }}
+            onChange={(e) => setSearchText(e.target.value)}
           />
+          <Button
+            style={{ marginBottom: 15, color: setNavTextCol, height: "50px" }}
+            onClick={() => navigate(`/search/${searchText}`)} 
+          >
+            <SearchIcon />
+          </Button>
           {/* <Link to="/login"> */}
-          {user ? (
+          {
+          user ? (
             <>
-                <Button
-                  // onClick={logout}
-                  className={classes.btn}
-                  style={{
-                    marginLeft: "1rem",
-                    paddingBlock: loginpadding,
-                  }}
-                >
-                  <Tooltip title={user.displayName} style={{fontSize:"300px"}}>
+              <Button
+                // onClick={logout}
+                className={classes.btn}
+                style={{
+                  marginLeft: "1rem",
+                  paddingBlock: loginpadding,
+                }}
+              >
+                <Tooltip title={user.displayName} style={{ fontSize: "300px" }}>
                   <div style={{ display: "flex", flexDirection: "column" }}>
                     <div>
                       <AccountCircleIcon fontSize="large" />
@@ -153,26 +176,23 @@ export default function Header({ user }) {
                     </div>
                   </div>
                 </Tooltip>
-                </Button>
-                <Button
-                  onClick={logout}
-                  className={classes.btn}
-                  style={{
-                    paddingBlock: loginpadding,
-                  }}
-                >
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <div>
-                      <LogoutIcon fontSize="small" />
-                    </div>
-                    <div>
-                      <Typography style={{ fontSize: "8px" }}>
-                        Logout
-                      </Typography>
-                    </div>
+              </Button>
+              <Button
+                onClick={logout}
+                className={classes.btn}
+                style={{
+                  paddingBlock: loginpadding,
+                }}
+              >
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <div>
+                    <LogoutIcon fontSize="small" />
                   </div>
-                </Button>
-              
+                  <div>
+                    <Typography style={{ fontSize: "8px" }}>Logout</Typography>
+                  </div>
+                </div>
+              </Button>
             </>
           ) : (
             <Button
@@ -192,7 +212,8 @@ export default function Header({ user }) {
                 </div>
               </div>
             </Button>
-          )}
+          )
+          }
           {/* </Link> */}
         </Toolbar>
       </AppBar>

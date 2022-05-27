@@ -1,4 +1,4 @@
-import { Button, Link, makeStyles, Typography } from "@material-ui/core";
+import { Button, makeStyles,} from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import "react-alice-carousel/lib/alice-carousel.css";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
@@ -31,14 +31,15 @@ const RecmCarousel = () => {
     const { data } = await Axios.get(
       `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US&page=1`
     );
-    console.log(data.results);
-    console.log(data.results.poster_path);
+    // console.log(data.results);
+    // console.log(data.results.poster_path);
     setContent(data.results);
   };
 
   useEffect(() => {
     fetchTrending();
-  }, []);
+  }, );
+
   const items = content.filter((c,index)=>index<10).map((c) => (
     <Button onClick={() => navigate(`/detail/${c.id}`)}  >
     <div style={{ paddingInline: "0.5rem" }}>

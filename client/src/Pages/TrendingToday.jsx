@@ -11,7 +11,7 @@ const TrendingToday = () => {
     const { data } = await Axios.get(
       `https://api.themoviedb.org/3/trending/movie/day?api_key=b9e11d2c8939104a4a755544e4eb8847`
     );
-    console.log(data);
+    // console.log(data);
 
     setContent(data.results);
   };

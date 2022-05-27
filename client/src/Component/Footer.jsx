@@ -5,15 +5,18 @@ import {
   TextField,
   Typography,
 } from "@material-ui/core";
-import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import SearchIcon from "@mui/icons-material/Search";
 
-const Footer = () => {
+
+const Footer = ({ user }) => {
   const useStyles = makeStyles(() => ({
     body: {
       fontFamily: "Montserrat",
@@ -26,6 +29,9 @@ const Footer = () => {
     },
   }));
   const classes = useStyles();
+
+  const [searchText, setSearchText] = useState("");
+  const navigate=useNavigate()
   return (
     <Container
       style={{
@@ -35,29 +41,10 @@ const Footer = () => {
         height: "40vh",
         paddingBlock: "40px",
         display: "flex",
-        bottom:"0px",
+        bottom: "0px",
         flexDirection: "row",
       }}
     >
-      {/* <div style={{ flex: 1, display: "flex", flexDirection: "column" }}> */}
-      {/* <div style={{ flex: 1 }}>
-          <Typography
-            className={classes.title}
-            onClick={() => Navigate("/")}
-            variant="h6"
-            style={{ color: "black" }}
-          >
-            G-Tracker
-          </Typography>
-          <Typography style={{ fontWeight: "600" }}>
-            We uses Machine Learning Algorithms to Recommend You Best Movies On
-            the Basis Of your Interest and Watch History
-          </Typography>
-          <Typography style={{ fontWeight: "600", paddingTop: 10 }}>
-            © 2022 G-Tracker
-          </Typography> */}
-      {/* </div> */}
-      {/* </div> */}
       <div
         style={{
           flex: 2,
@@ -66,15 +53,27 @@ const Footer = () => {
           paddingLeft: "10px",
         }}
       >
-        <Typography style={{ color: "black" }}>
+        {
+        user?(<><Typography style={{ color: "black" }}>
+          <Button>
+
+          Hey Wassup  {user.name.givenName}
+          </Button>
+        </Typography>
+          </>
+        ):(<Typography style={{ color: "black" }}>
           <Button>Login</Button>
         </Typography>
+        )
+        }
+        
         <Typography style={{ color: "black" }}>
           <Button>About US</Button>
         </Typography>
         <Typography style={{ color: "black" }}>
-          <Button>Trendings</Button>
+          <Link to={'/trending'} style={{textDecoration:"none"}}><Button >Trendings</Button></Link>
         </Typography>
+        <div style={{display:"flex",flexDirection:"row"}}>
         <TextField
           InputLabelProps={{}}
           id="outlined-search"
@@ -85,7 +84,15 @@ const Footer = () => {
             color: "black",
             marginLeft: "9px",
           }}
+          onChange={(e) => setSearchText(e.target.value)}
         />
+        <Button
+            style={{ marginBottom: 15 , height: "50px" }}
+            onClick={() => navigate(`/search/${searchText}`)} 
+          >
+            <SearchIcon />
+          </Button>
+          </div>
       </div>
 
       <div
@@ -96,18 +103,20 @@ const Footer = () => {
           paddingLeft: "1px",
           width: "60%",
         }}
-      > <div>
-      <Typography
-        className={classes.title}
-        onClick={() => Navigate("/")}
-        variant="h6"
-        padding="10px"
-        style={{ color: "black" }}
-        align="center"
       >
-        G-Tracker
-      </Typography>
-    </div>
+        {" "}
+        <div>
+          <Typography
+            className={classes.title}
+            onClick={() => Navigate("/")}
+            variant="h6"
+            padding="10px"
+            style={{ color: "black" }}
+            align="center"
+          >
+            MoviesVerse
+          </Typography>
+        </div>
         <Typography style={{ marginBlock: "20px" }} align="center">
           Connect With Us
         </Typography>
@@ -128,13 +137,12 @@ const Footer = () => {
             <GitHubIcon fontSize="large" />
           </Button>
         </div>
-       
         <div>
           <Typography
             style={{ fontWeight: "600", paddingTop: 10 }}
             align="center"
           >
-            © 2022 G-Tracker
+            © 2022 MoviesVerse
           </Typography>
         </div>
       </div>

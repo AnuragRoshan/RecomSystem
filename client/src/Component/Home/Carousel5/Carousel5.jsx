@@ -38,7 +38,7 @@ const Carousel5 = () => {
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/discover/movie?with_genres=878&primary_release_year=2021&primary_release_year=2021&api_key=b9e11d2c8939104a4a755544e4eb8847`
+      `https://api.themoviedb.org/3/discover/movie?with_genres=878&primary_release_year=2016&api_key=b9e11d2c8939104a4a755544e4eb8847`
     );
     setContent(data.results);
   };

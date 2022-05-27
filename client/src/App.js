@@ -12,6 +12,7 @@ import Detailview from "./Pages/Detailview";
 import TrendingToday from "./Pages/TrendingToday";
 import Upcoming from "./Pages/Upcoming";
 import NotFound from "./Pages/NotFound"
+import SearchPages from "./Pages/SearchPages";
 
 export const userContext = createContext();
 
@@ -57,7 +58,7 @@ function App() {
     };
     getUser();
   }, []);
-  console.log(user);
+  // console.log(user);
   
   return (
       <BrowserRouter>
@@ -70,10 +71,11 @@ function App() {
             < Route exact path="/trending" element={<TrendingToday />} />
             < Route exact path="/login" element={user? <Navigate to="/"/> :<Login />} />
             < Route exact path="/casts/:id" element={<CastDetail />} />
-            < Route exact path="/upcoming" element={user?<Upcoming />:<Navigate to="/login"/>} />
+            < Route exact path="/upcoming" element={<Upcoming />} />
+            < Route exact path="/search/:id" element={<SearchPages />} />
             <Route path="*" element={<NotFound/>}  />
           </Routes>
-          <Footer className={classes.footer} />
+          <Footer className={classes.footer} user={user} />
 
 
         </div>
