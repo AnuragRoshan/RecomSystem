@@ -13,6 +13,7 @@ import TrendingToday from "./Pages/TrendingToday";
 import Upcoming from "./Pages/Upcoming";
 import NotFound from "./Pages/NotFound"
 import SearchPages from "./Pages/SearchPages";
+import RecomDetailView from "./Pages/RecomDetailView";
 
 export const userContext = createContext();
 
@@ -67,12 +68,13 @@ function App() {
           <Routes>
 
             < Route exact path="/" element={<Home />} />
-            <Route exact path="/detail/:id" element={<Detailview />} />
+            <Route exact path="/detail/:id/:title" element={<Detailview />} />
             < Route exact path="/trending" element={<TrendingToday />} />
             < Route exact path="/login" element={user? <Navigate to="/"/> :<Login />} />
             < Route exact path="/casts/:id" element={<CastDetail />} />
             < Route exact path="/upcoming" element={<Upcoming />} />
             < Route exact path="/search/:id" element={<SearchPages />} />
+            < Route exact path="/recomm/detail/:id" element={<RecomDetailView />} />
             <Route path="*" element={<NotFound/>}  />
           </Routes>
           <Footer className={classes.footer} user={user} />
