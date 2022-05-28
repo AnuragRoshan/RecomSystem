@@ -51,7 +51,7 @@ const Carousel3 = () => {
   }, []);
   const items = content.map((c) => (
     // return(
-      <Button onClick={() => navigate(`/detail/${c.id}`)}  >
+      <Button onClick={() => navigate(`/detail/${c.id}/${c.title}`)}  >
       <div style={{ display: "flex", flexDirection: "column"}}>
         <div style={{ paddingInline: "0.5rem" }}>
           <img

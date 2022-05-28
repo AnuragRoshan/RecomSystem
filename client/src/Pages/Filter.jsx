@@ -2,25 +2,27 @@ import { Button, Container, Typography } from "@material-ui/core";
 import { Rating } from "@mui/material";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
-import {  useNavigate } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { img_300 } from "../Config/Config";
 
-const TrendingToday = () => {
-  const [content, setContent] = useState([]);
-  const fetchTrending = async () => {
-    const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/trending/movie/day?api_key=b9e11d2c8939104a4a755544e4eb8847`
-    );
-    // console.log(data);
+const Filter = () => {
+    const {id,title}=useParams();
 
-    setContent(data.results);
-  };
 
-  useEffect(() => {
-    // window.scroll(0, 0);
-    fetchTrending();
-    // eslint-disable-next-line
-  }, []);
+    const [content, setContent] = useState([]);
+    const fetchTrending = async () => {
+      const { data } = await Axios.get(
+        `https://api.themoviedb.org/3/discover/movie?with_genres=${id}&primary_release_year=2015&api_key=b9e11d2c8939104a4a755544e4eb8847`
+      );
+      setContent(data.results);
+      console.log(data.results);
+    };
+  
+    useEffect(() => {
+      // window.scroll(0, 0);
+      fetchTrending();
+      // eslint-disable-next-line
+    }, []);
   const navigate = useNavigate();
   return (
     <Container style={{ marginTop: "90px" }}>
@@ -33,7 +35,8 @@ const TrendingToday = () => {
           paddingBlock: "32px",
         }}
       >
-        Today's Hot Chart
+          Filtered On <i>"{title}"</i>
+        
       </Typography>
       <div
         style={{
@@ -66,7 +69,7 @@ const TrendingToday = () => {
               </Typography>
             </div>
             <div>
-              <Rating name="read-only" value={c.vote_average / 2} readOnly />
+              
             </div>
           </div>
           </Button>
@@ -76,4 +79,4 @@ const TrendingToday = () => {
   );
 };
 
-export default TrendingToday;
+export default Filter;

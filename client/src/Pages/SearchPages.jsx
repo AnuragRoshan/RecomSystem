@@ -54,7 +54,7 @@ const SearchPages = () => {
             }}
           >
             {content.map((c) => (
-              < Button onClick={() => navigate(`/detail/${c.id}`)}>
+              < Button onClick={() => navigate(`/detail/${c.id}/${c.title}`)}>
               <div style={{ paddingRight: "0.5rem", paddingBlock: "1.5rem" }}>
                 <img
                   src={`${img_300}/${c.poster_path}`}

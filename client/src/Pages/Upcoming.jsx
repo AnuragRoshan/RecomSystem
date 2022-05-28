@@ -8,7 +8,7 @@ const TrendingToday = () => {
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US&page=7`
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US&page=2`
     );
     // console.log(data);
 
@@ -44,7 +44,7 @@ const TrendingToday = () => {
         }}
       >
         {content.map((c) => (
-          < Button onClick={() => navigate(`/detail/${c.id}`)}>
+          < Button onClick={() => navigate(`/detail/${c.id}/${c.title}`)}>
           <div style={{ paddingRight: "0.5rem", paddingBlock: "1.5rem" ,color:"white"}}>
             <img
               src={`${img_300}/${c.poster_path}`}

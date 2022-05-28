@@ -24,7 +24,6 @@ const RecmCarousel = () => {
   const classes = useStyles();
 
   const [content, setContent] = useState([]);
-  const [Mov1, setMov1] = useState([]);
 
   console.log(id);
   console.log(title);
@@ -68,20 +67,50 @@ const RecmCarousel = () => {
     fetchMovie2();
   }, [content]);
 
-  // const fetchTrending2 = async () => {
-  //   const { data } = await Axios.get(
-  //     `https://api.themoviedb.org/3/movie/${content.movie_name1}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
-  //   );
-  //   // console.log(data.results);
-  //   // console.log(data.results.poster_path);
-  //   setMov1(data.results);
-  // };
-  // useEffect(() => {
-  //   fetchTrending2();
-  // }, []);
+  const [movie3, setMovie3] = useState([]);
+  const fetchMovie3 = async () => {
+    const { data } = await Axios.get(
+      `https://api.themoviedb.org/3/movie/${content.movie_name3}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
+    );
+   setMovie3(data);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    fetchMovie3();
+  }, [content]);
+
+  const [movie4, setMovie4] = useState([]);
+  const fetchMovie4 = async () => {
+    const { data } = await Axios.get(
+      `https://api.themoviedb.org/3/movie/${content.movie_name4}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
+    );
+   setMovie4(data);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    fetchMovie4();
+  }, [content]);
+
+  const [movie5, setMovie5] = useState([]);
+  const fetchMovie5 = async () => {
+    const { data } = await Axios.get(
+      `https://api.themoviedb.org/3/movie/${content.movie_name5}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
+    );
+   setMovie5(data);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    fetchMovie5();
+  }, [content]);
+
+  
 
   const items =  
  [
+  <Button onClick={() => navigate(`/recomm/detail/${movie1.id}/${movie1.title}`)}  >
      <div style={{ paddingInline: "0.5rem" }}>
 
       <img
@@ -92,7 +121,9 @@ const RecmCarousel = () => {
          height="290"
          alt={`${movie1.title}`}
       />
-    </div>,
+    </div>
+    </Button>,
+  <Button onClick={() => navigate(`/recomm/detail/${movie2.id}/${movie2.title}`)}  >
     <div style={{ paddingInline: "0.5rem" }}>
 
     <img
@@ -102,8 +133,48 @@ const RecmCarousel = () => {
        width="100%"
        height="290"
        alt={`${movie2.title}`}
-    />
-  </div>,
+       />
+  </div>
+       </Button>,
+  <Button onClick={() => navigate(`/recomm/detail/${movie3.id}/${movie3.title}`)}  >
+    <div style={{ paddingInline: "0.5rem" }}>
+
+    <img
+       src={`${img_300}/${movie3.poster_path}`}
+       onDragStart={handleDragStart}
+       role="presentation"
+       width="100%"
+       height="290"
+       alt={`${movie3.title}`}
+       />
+  </div>
+      </Button>,
+  <Button onClick={() => navigate(`/recomm/detail/${movie4.id}/${movie4.title}`)}  >
+    <div style={{ paddingInline: "0.5rem" }}>
+
+    <img
+       src={`${img_300}/${movie4.poster_path}`}
+       onDragStart={handleDragStart}
+       role="presentation"
+       width="100%"
+       height="290"
+       alt={`${movie4.title}`}
+       />
+  </div>
+       </Button>,
+  <Button onClick={() => navigate(`/recomm/detail/${movie5.id}/${movie5.title}`)}  >
+    <div style={{ paddingInline: "0.5rem" }}>
+
+    <img
+       src={`${img_300}/${movie5.poster_path}`}
+       onDragStart={handleDragStart}
+       role="presentation"
+       width="100%"
+       height="290"
+       alt={`${movie5.title}`}
+       />
+  </div>
+       </Button>,
 
  ]
 

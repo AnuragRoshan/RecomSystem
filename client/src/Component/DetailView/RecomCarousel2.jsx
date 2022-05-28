@@ -41,7 +41,7 @@ const RecmCarousel = () => {
   }, );
 
   const items = content.filter((c,index)=>index<10).map((c) => (
-    <Button onClick={() => navigate(`/detail/${c.id}`)}  >
+    <Button onClick={() => navigate(`/detail/${c.id}/${c.title}`)}  >
     <div style={{ paddingInline: "0.5rem" }}>
      
       <img

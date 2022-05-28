@@ -5,6 +5,7 @@ import AliceCarousel from "react-alice-carousel";
 import Axios from "axios";
 import { img_300 } from "../../../Config/Config";
 import { useNavigate } from "react-router-dom";
+import GenreSort from "../../GenreSort";
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -34,7 +35,7 @@ const Carousel = () => {
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
     const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/discover/movie?with_genres=878&primary_release_year=2016&api_key=b9e11d2c8939104a4a755544e4eb8847`
+      `https://api.themoviedb.org/3/discover/movie?with_genres=27&primary_release_year=2015&api_key=b9e11d2c8939104a4a755544e4eb8847`
     );
     // console.log(data.results);
     // console.log(data.results.poster_path);
@@ -45,7 +46,7 @@ const Carousel = () => {
     fetchTrending();
   }, []);
   const items = content.filter((c,index)=>index<6).map((c) => (
-    <Button onClick={() => navigate(`/detail/${c.id}`)}  >
+    <Button onClick={() => navigate(`/detail/${c.id}/${c.title}`)}  >
     <div style={{ paddingInline: "0.5rem" }}>
      
       <img
@@ -69,6 +70,7 @@ const Carousel = () => {
   };
 
   return (
+
     <div className={classes.carousel}>
       <AliceCarousel
         mouseTracking
@@ -81,8 +83,9 @@ const Carousel = () => {
         items={items}
         autoPlay
         keyboardNavigation={true}
-      />
+        />
     </div>
+    
   );
 };
 

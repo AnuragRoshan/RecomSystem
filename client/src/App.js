@@ -14,6 +14,7 @@ import Upcoming from "./Pages/Upcoming";
 import NotFound from "./Pages/NotFound"
 import SearchPages from "./Pages/SearchPages";
 import RecomDetailView from "./Pages/RecomDetailView";
+import Filter from "./Pages/Filter";
 
 export const userContext = createContext();
 
@@ -74,7 +75,8 @@ function App() {
             < Route exact path="/casts/:id" element={<CastDetail />} />
             < Route exact path="/upcoming" element={<Upcoming />} />
             < Route exact path="/search/:id" element={<SearchPages />} />
-            < Route exact path="/recomm/detail/:id" element={<RecomDetailView />} />
+            < Route exact path="/recomm/detail/:id/:title" element={<RecomDetailView />} />
+            < Route exact path="/filter/:id/:title" element={<Filter />} />
             <Route path="*" element={<NotFound/>}  />
           </Routes>
           <Footer className={classes.footer} user={user} />

@@ -1,5 +1,6 @@
 import { Container, makeStyles } from "@material-ui/core";
 import React from "react";
+import GenreSort from "../GenreSort";
 import Carousel from "./Carousel1/Carousel";
 
 const useStyle = makeStyles(() => ({
@@ -8,6 +9,7 @@ const useStyle = makeStyles(() => ({
     opacity: 0.7,
     display: "flex",
     width: "100%",
+    marginTop:"17rem",
     flexDirection: "column",
     justifyContent: "space-around",
   },
@@ -19,7 +21,8 @@ const Banner = () => {
   return (
     <Container className={classes.bannerContent}>
       <Carousel className={classes.Carousel} />
-
+      
+      <GenreSort  />
     </Container>
   );
 };

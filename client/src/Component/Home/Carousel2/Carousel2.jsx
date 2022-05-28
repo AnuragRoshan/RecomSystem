@@ -42,6 +42,7 @@ const Carousel2 = () => {
       `https://api.themoviedb.org/3/trending/all/day?api_key=b9e11d2c8939104a4a755544e4eb8847`
     );
     setContent(data.results);
+    console.log(data.results);
   };
 
   useEffect(() => {
@@ -51,7 +52,7 @@ const Carousel2 = () => {
   }, []);
   const items = content.map((c) => (
     // return(
-      <Button onClick={() => navigate(`/detail/${c.id}`)}  >
+      <Button onClick={() => navigate(`/detail/${c.id}/${c.title}`)}  >
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ paddingInline: "0.5rem" }}>
           <img

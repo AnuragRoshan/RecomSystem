@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import DetailBanner2 from '../Component/DetailView/DetailBanner';
+import DetailBanner from '../Component/DetailView/DetailBanner';
 import RecomCarousel from '../Component/DetailView/RecomCarousel';
 
 
@@ -11,7 +11,7 @@ function Detailview() {
   return (
     <div style={{color:"white",marginTop:"88px"}}>
       {/* <Banner/> */}
-      <DetailBanner2/>
+      <DetailBanner/>
       {/* <RecomCarousel  /> */}
       {/* <Info/> */}
     </div>

@@ -66,10 +66,12 @@ const Footer = ({ user }) => {
         </Typography>
         )
         }
+        <a style={{textDecoration:"none"}} href="https://anuragroshan.github.io/mycv/">
         
         <Typography style={{ color: "black" }}>
-          <Button>About US</Button>
+          <Button>About Developer</Button>
         </Typography>
+        </a>
         <Typography style={{ color: "black" }}>
           <Link to={'/trending'} style={{textDecoration:"none"}}><Button >Trendings</Button></Link>
         </Typography>
