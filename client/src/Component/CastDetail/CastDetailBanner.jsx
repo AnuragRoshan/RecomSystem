@@ -71,19 +71,7 @@ const DetailBanner = () => {
                <div style={{ alignSelf: "center" }}><b>Popularity :</b> {content.popularity}</div>
             </Tooltip>
 
-            {/* <div style={{ marginTop: "5px" }}>
-              <Button>
-                <Tooltip title="Add to Watchlist">
-                  <PlaylistAddIcon
-                    style={{ color: "white", marginLeft: "3px" }}
-                    fontSize="large"
-                  ></PlaylistAddIcon>
-                </Tooltip>
-              </Button>
-            </div> */}
           </div>
-          {/* <div><b> Budget : </b>${content.budget}</div>
-          <div> <b> Gross Collection :</b> ${content.revenue}</div> */}
           <div style={{ display: "flex", flexDirection: "column" }}>
             <b> <div >Biography :</div></b>
             <div>

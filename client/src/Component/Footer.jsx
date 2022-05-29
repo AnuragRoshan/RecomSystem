@@ -62,7 +62,7 @@ const Footer = ({ user }) => {
         </Typography>
           </>
         ):(<Typography style={{ color: "black" }}>
-          <Button>Login</Button>
+          <Button onClick={() => navigate(`/login`)} >Login</Button>
         </Typography>
         )
         }

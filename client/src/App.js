@@ -15,6 +15,7 @@ import NotFound from "./Pages/NotFound"
 import SearchPages from "./Pages/SearchPages";
 import RecomDetailView from "./Pages/RecomDetailView";
 import Filter from "./Pages/Filter";
+import Landing from "./Pages/Landing";
 
 export const userContext = createContext();
 
@@ -62,13 +63,17 @@ function App() {
   }, []);
   // console.log(user);
   
+  const [showNav, setShowNav] = useState(true);
+
   return (
       <BrowserRouter>
         <div className={classes.App}>
-          <Header user={user} />
+        {   showNav && <Header user={user} />
+      }
           <Routes>
 
-            < Route exact path="/" element={<Home />} />
+            < Route exact path="/" element={<Landing funcNav={setShowNav}/>} />
+            < Route exact path="/home" element={<Home />} />
             <Route exact path="/detail/:id/:title" element={<Detailview />} />
             < Route exact path="/trending" element={<TrendingToday />} />
             < Route exact path="/login" element={user? <Navigate to="/"/> :<Login />} />

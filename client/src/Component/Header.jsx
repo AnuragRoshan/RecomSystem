@@ -17,7 +17,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 export default function Header({ user }) {
   const [navSize, setnavSize] = useState("5.5rem");
-  const [navColor, setnavColor] = useState("white");
+  const [navColor, setnavColor] = useState("#e2e7e9");
   const [navTextCol, setNavTextCol] = useState("black");
   const [loginpadding, setLoginpadding] = useState("2.5rem");
 
@@ -26,7 +26,7 @@ export default function Header({ user }) {
     window.scrollY > 10 ? setnavColor("#19272ec2") : setnavColor("#e2e7e9");
     window.scrollY > 10 ? setnavSize("4.5rem") : setnavSize("5.5rem");
     window.scrollY > 10 ? setNavTextCol("white") : setNavTextCol("black");
-    window.scrollY > 10 ? setLoginpadding("1rem") : setLoginpadding("1.5rem");
+    window.scrollY > 10 ? setLoginpadding("1rem") : setLoginpadding("1.9rem");
   };
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
@@ -92,6 +92,7 @@ export default function Header({ user }) {
           height: navSize,
           transition: "all 0.5s",
         }}
+        elevation={0}
       >
         <Toolbar
           style={{
@@ -102,7 +103,7 @@ export default function Header({ user }) {
         >
           <Typography
             className={classes.title}
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/home")}
             variant="h6"
             style={{ color: navTextCol }}
           >

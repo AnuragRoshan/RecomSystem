@@ -78,16 +78,7 @@ const DetailBanner2 = () => {
                <div style={{ alignSelf: "center" }}><b>Rating :</b> {content.vote_average} / 10</div>
             </Tooltip>
 
-            <div style={{ marginTop: "5px" }}>
-              <Button>
-                <Tooltip title="Add to Watchlist">
-                  <PlaylistAddIcon
-                    style={{ color: "white", marginLeft: "3px" }}
-                    fontSize="large"
-                  ></PlaylistAddIcon>
-                </Tooltip>
-              </Button>
-            </div>
+           
           </div>
           <div><b> Budget : </b>$ {numberWithCommas (`${content.budget}`)}</div>
           <div> <b> Gross Collection :</b> $ {numberWithCommas (`${content.revenue}`)}</div>
