@@ -27,8 +27,6 @@ const RecmCarousel = () => {
 
   console.log(id);
   console.log(title);
-  // const it="Hulk"
-  // console.log(it);
 
   
   useEffect(() => {
@@ -194,15 +192,12 @@ const RecmCarousel = () => {
       <AliceCarousel
         mouseTracking
         disableDotsControls
-        // disableButtonsControls  // ---> also remove this
-        // activeIndex={activeIndex}  // ---> no need to this anymore
         items={items}
         responsive={responsive}
         controlsStrategy="responsive"
         autoPlay={true}
         autoPlayInterval={5000}
         infinite={true}
-        //  keyboardNavigation={true}
         renderPrevButton={() => {
           return (
             <Button

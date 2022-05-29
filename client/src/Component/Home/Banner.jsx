@@ -9,7 +9,7 @@ const useStyle = makeStyles(() => ({
     opacity: 0.7,
     display: "flex",
     width: "100%",
-    marginTop:"17rem",
+    marginTop: "17rem",
     flexDirection: "column",
     justifyContent: "space-around",
   },
@@ -21,8 +21,8 @@ const Banner = () => {
   return (
     <Container className={classes.bannerContent}>
       <Carousel className={classes.Carousel} />
-      
-      <GenreSort  />
+
+      <GenreSort />
     </Container>
   );
 };

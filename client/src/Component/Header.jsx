@@ -50,7 +50,6 @@ export default function Header({ user }) {
   const [searchText, setSearchText] = useState("");
   // const str=searchText
 
-  
   //**************************Search Part End***************************************/
 
   const useStyles = makeStyles(() => ({
@@ -74,12 +73,12 @@ export default function Header({ user }) {
         color: navTextCol,
       },
     },
-    multilineColor:{
+    multilineColor: {
       color: navTextCol,
       "&.Mui-focused": {
         color: navTextCol,
       },
-  }
+    },
   }));
   const classes = useStyles();
   const navigate = useNavigate();
@@ -109,12 +108,7 @@ export default function Header({ user }) {
           >
             MoviesVerse
           </Typography>
-          {/* <Button className={classes.btn} style={{ margin: "2rem" }}>
-            Ranking
-          </Button> */}
-          {/* <Button  className={classes.btn} style={{ marginRight: "2rem" }}>
-            Watchlist
-          </Button> */}
+
           <Button
             className={classes.btn}
             style={{ color: navTextCol, marginInline: "2rem" }}
@@ -134,7 +128,7 @@ export default function Header({ user }) {
               classes: { root: classes.cssLabel, focused: classes.cssFocused },
             }}
             InputProps={{
-              className: classes.multilineColor
+              className: classes.multilineColor,
             }}
             id="outlined-search"
             label="Search Movies Here"
@@ -149,16 +143,13 @@ export default function Header({ user }) {
           />
           <Button
             style={{ marginBottom: 15, color: setNavTextCol, height: "50px" }}
-            onClick={() => navigate(`/search/${searchText}`)} 
+            onClick={() => navigate(`/search/${searchText}`)}
           >
             <SearchIcon />
           </Button>
-          {/* <Link to="/login"> */}
-          {
-          user ? (
+          {user ? (
             <>
               <Button
-                // onClick={logout}
                 className={classes.btn}
                 style={{
                   marginLeft: "1rem",
@@ -213,8 +204,7 @@ export default function Header({ user }) {
                 </div>
               </div>
             </Button>
-          )
-          }
+          )}
           {/* </Link> */}
         </Toolbar>
       </AppBar>

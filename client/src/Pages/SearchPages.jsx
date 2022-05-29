@@ -16,7 +16,6 @@ const SearchPages = () => {
           `
             https://api.themoviedb.org/3/search/movie?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US&query=${id}&page=1&include_adult=false`
         );
-        // console.log(id);
         setcontent(data.results);
         console.log(data.results);
       } catch (error) {
@@ -58,8 +57,6 @@ const SearchPages = () => {
               <div style={{ paddingRight: "0.5rem", paddingBlock: "1.5rem" }}>
                 <img
                   src={`${img_300}/${c.poster_path}`}
-                  // onDragStart={handleDragStart}
-                  // role="presentation"
                   width="100%"
                   height="350"
                   alt="hello"

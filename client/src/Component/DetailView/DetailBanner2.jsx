@@ -10,7 +10,6 @@ export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-
 const DetailBanner2 = () => {
   const { id } = useParams();
   const [content, setContent] = useState([]);
@@ -18,38 +17,25 @@ const DetailBanner2 = () => {
     const { data } = await Axios.get(
       `https://api.themoviedb.org/3/movie/${id}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
     );
-    // console.log(data.results.poster_path);
     setContent(data);
   };
 
   useEffect(() => {
-    // window.scroll(0, 0);
     fetchTrending();
     // eslint-disable-next-line
   }, []);
-
-
-  
-
 
   return (
     <div style={{ width: "100%" }}>
       <div style={{ margin: "50px", display: "flex", flexDirection: "row" }}>
         <div style={{ width: "50%" }}>
           <img
-          alt={content.title}
+            alt={content.title}
             src={`${img_300}/${content.poster_path}`}
             height="500px"
             width="100%"
           ></img>
         </div>
-        {/* <div
-          style={{
-            border: "0.01px solid white",
-            height: "500px",
-            marginLeft: "10px",
-          }}
-        ></div> */}
         <div
           style={{
             marginLeft: "38px",
@@ -65,27 +51,35 @@ const DetailBanner2 = () => {
             <Typography style={{ fontSize: "40px", fontWeight: "700" }}>
               {content.original_title}
             </Typography>
-            
           </div>
-          <div style={{ fontSize: "20px",}}>
-          Release Date :  {content.release_date}
-            </div>
-          <div><b>Runtime :  </b>{Math.floor(content.runtime/60)}h {content.runtime%60}m
+          <div style={{ fontSize: "20px" }}>
+            Release Date : {content.release_date}
+          </div>
+          <div>
+            <b>Runtime : </b>
+            {Math.floor(content.runtime / 60)}h {content.runtime % 60}m
           </div>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <Tooltip title="User Rating">
-               <div style={{ alignSelf: "center" }}><b>Rating :</b> {content.vote_average} / 10</div>
+              <div style={{ alignSelf: "center" }}>
+                <b>Rating :</b> {content.vote_average} / 10
+              </div>
             </Tooltip>
-
-           
           </div>
-          <div><b> Budget : </b>$ {numberWithCommas (`${content.budget}`)}</div>
-          <div> <b> Gross Collection :</b> $ {numberWithCommas (`${content.revenue}`)}</div>
+          <div>
+            <b> Budget : </b>$ {numberWithCommas(`${content.budget}`)}
+          </div>
+          <div>
+            {" "}
+            <b> Gross Collection :</b> ${" "}
+            {numberWithCommas(`${content.revenue}`)}
+          </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <b> <div >Overview:</div></b>
-            <div>
-            {content.overview}
-            </div>
+            <b>
+              {" "}
+              <div>Overview:</div>
+            </b>
+            <div>{content.overview}</div>
           </div>
         </div>
       </div>
@@ -104,7 +98,7 @@ const DetailBanner2 = () => {
         </Typography>
         <CastCarousel />
       </div>
-      <div style={{marginTop:"102px"}}>
+      <div style={{ marginTop: "102px" }}>
         <Typography
           variant="h5"
           style={{
@@ -116,8 +110,8 @@ const DetailBanner2 = () => {
           }}
         >
           More Like This
-        </Typography> 
-        <RecomCarousel2  />
+        </Typography>
+        <RecomCarousel2 />
       </div>
     </div>
   );

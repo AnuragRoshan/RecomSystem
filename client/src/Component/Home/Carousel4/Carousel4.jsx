@@ -11,17 +11,6 @@ import { useNavigate } from "react-router-dom";
 
 const handleDragStart = (e) => e.preventDefault();
 
-// console.log(imag);
-// const items = imag.map((coin) => {
-//   // let profit = coin?.price_change_percentage_24h >= 0;
-//   return (
-//     <Link className={classes.carouselItem} to={`/`}>
-//       <img src={coin.src} alt={coin.alt} height="648" width="100%" />
-//     </Link>
-//   );
-
-// });
-
 const Carousel4 = () => {
   const useStyles = makeStyles(() => ({
     carousel: {
@@ -33,7 +22,7 @@ const Carousel4 = () => {
     },
   }));
 
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const classes = useStyles();
 
   const [content, setContent] = useState([]);
@@ -45,13 +34,11 @@ const Carousel4 = () => {
   };
 
   useEffect(() => {
-    // window.scroll(0, 0);
     fetchTrending();
     // eslint-disable-next-line
   }, []);
   const items = content.map((c) => (
-    // return(
-      <Button onClick={() => navigate(`/detail/${c.id}/${c.title}`)}  >
+    <Button onClick={() => navigate(`/detail/${c.id}/${c.title}`)}>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ paddingInline: "0.5rem" }}>
           <img
@@ -64,14 +51,14 @@ const Carousel4 = () => {
           />
         </div>
         <div>
-              <Typography style={{ color: "white",marginTop:"1rem"  }}>
-                {`${c.title}`.length > 20 ? (
-                  <div>{`${`${c.title}`.substring(0, 20)}...`}</div>
-                ) : (
-                  <p>{`${c.title}`}</p>
-                )}
-              </Typography>
-            </div>
+          <Typography style={{ color: "white", marginTop: "1rem" }}>
+            {`${c.title}`.length > 20 ? (
+              <div>{`${`${c.title}`.substring(0, 20)}...`}</div>
+            ) : (
+              <p>{`${c.title}`}</p>
+            )}
+          </Typography>
+        </div>
       </div>
     </Button>
     // );
@@ -93,15 +80,12 @@ const Carousel4 = () => {
       <AliceCarousel
         mouseTracking
         disableDotsControls
-        // disableButtonsControls  // ---> also remove this
-        // activeIndex={activeIndex}  // ---> no need to this anymore
         items={items}
         responsive={responsive}
         controlsStrategy="responsive"
         autoPlay={true}
         autoPlayInterval={5000}
         infinite={true}
-        //  keyboardNavigation={true}
         renderPrevButton={() => {
           return (
             <Button

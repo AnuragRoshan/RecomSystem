@@ -9,10 +9,9 @@ function Detailview() {
   }, []);
   return (
     <div style={{color:"white",marginTop:"88px"}}>
-      {/* <Banner/> */}
+ 
       <DetailBanner/>
-      {/* <RecomCarousel  /> */}
-      {/* <Info/> */}
+
     </div>
   )
 }

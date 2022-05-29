@@ -11,13 +11,11 @@ const TrendingToday = () => {
     const { data } = await Axios.get(
       `https://api.themoviedb.org/3/trending/movie/day?api_key=b9e11d2c8939104a4a755544e4eb8847`
     );
-    // console.log(data);
 
     setContent(data.results);
   };
 
   useEffect(() => {
-    // window.scroll(0, 0);
     fetchTrending();
     // eslint-disable-next-line
   }, []);
@@ -49,8 +47,6 @@ const TrendingToday = () => {
           <div style={{ paddingRight: "0.5rem", paddingBlock: "1.5rem" }}>
             <img
               src={`${img_300}/${c.poster_path}`}
-              // onDragStart={handleDragStart}
-              // role="presentation"
               width="100%"
               height="350"
               alt="hello"

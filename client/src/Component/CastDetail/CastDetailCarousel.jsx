@@ -1,26 +1,14 @@
-import { Button,  makeStyles, Typography } from "@material-ui/core";
+import { Button, makeStyles, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import "react-alice-carousel/lib/alice-carousel.css";
 import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import AliceCarousel from "react-alice-carousel";
-// import imag from "./items";
 import Axios from "axios";
 import { img_300 } from "../../Config/Config";
 import { useNavigate, useParams } from "react-router-dom";
 
 const handleDragStart = (e) => e.preventDefault();
-
-// console.log(imag);
-// const items = imag.map((coin) => {
-//   // let profit = coin?.price_change_percentage_24h >= 0;
-//   return (
-//     <Link className={classes.carouselItem} to={`/`}>
-//       <img src={coin.src} alt={coin.alt} height="648" width="100%" />
-//     </Link>
-//   );
-
-// });
 
 const Carousel2 = () => {
   const useStyles = makeStyles(() => ({
@@ -33,27 +21,24 @@ const Carousel2 = () => {
     },
   }));
 
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const classes = useStyles();
-  const {id}= useParams()
+  const { id } = useParams();
 
   const [content, setContent] = useState([]);
-  const fetchTrending = async () => {
-    const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
-    );
-    setContent(data.cast);
-    // console.log(data.cast);
-  };
 
   useEffect(() => {
-    // window.scroll(0, 0);
+    const fetchTrending = async () => {
+      const { data } = await Axios.get(
+        `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
+      );
+      setContent(data.cast);
+    };
     fetchTrending();
     // eslint-disable-next-line
   }, []);
   const items = content.map((c) => (
-    // return(
-      <Button onClick={() => navigate(`/detail/${c.id}/${c.title}`)}  >
+    <Button onClick={() => navigate(`/detail/${c.id}/${c.title}`)}>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div style={{ paddingInline: "0.5rem" }}>
           <img
@@ -66,14 +51,14 @@ const Carousel2 = () => {
           />
         </div>
         <div>
-              <Typography style={{ color: "white",marginTop:"1rem"  }}>
-                {`${c.title}`.length > 20 ? (
-                  <div>{`${`${c.title}`.substring(0, 20)}...`}</div>
-                ) : (
-                  <p>{`${c.title}`}</p>
-                )}
-              </Typography>
-            </div>
+          <Typography style={{ color: "white", marginTop: "1rem" }}>
+            {`${c.title}`.length > 20 ? (
+              <div>{`${`${c.title}`.substring(0, 20)}...`}</div>
+            ) : (
+              <p>{`${c.title}`}</p>
+            )}
+          </Typography>
+        </div>
       </div>
     </Button>
     // );
@@ -95,15 +80,12 @@ const Carousel2 = () => {
       <AliceCarousel
         mouseTracking
         disableDotsControls
-        // disableButtonsControls  // ---> also remove this
-        // activeIndex={activeIndex}  // ---> no need to this anymore
         items={items}
         responsive={responsive}
         controlsStrategy="responsive"
         autoPlay={true}
         autoPlayInterval={5000}
         infinite={true}
-        //  keyboardNavigation={true}
         renderPrevButton={() => {
           return (
             <Button

@@ -18,7 +18,6 @@ const Filter = () => {
     };
   
     useEffect(() => {
-      // window.scroll(0, 0);
       fetchTrending();
       // eslint-disable-next-line
     }, []);
@@ -51,8 +50,6 @@ const Filter = () => {
           <div style={{ paddingRight: "0.5rem", paddingBlock: "1.5rem" }}>
             <img
               src={`${img_300}/${c.poster_path}`}
-              // onDragStart={handleDragStart}
-              // role="presentation"
               width="100%"
               height="350"
               alt="hello"

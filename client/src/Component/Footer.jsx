@@ -15,7 +15,6 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import SearchIcon from "@mui/icons-material/Search";
 
-
 const Footer = ({ user }) => {
   const useStyles = makeStyles(() => ({
     body: {
@@ -31,7 +30,7 @@ const Footer = ({ user }) => {
   const classes = useStyles();
 
   const [searchText, setSearchText] = useState("");
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   return (
     <Container
       style={{
@@ -53,48 +52,50 @@ const Footer = ({ user }) => {
           paddingLeft: "10px",
         }}
       >
-        {
-        user?(<><Typography style={{ color: "black" }}>
-          <Button>
-
-          Hey Wassup  {user.name.givenName}
-          </Button>
-        </Typography>
+        {user ? (
+          <>
+            <Typography style={{ color: "black" }}>
+              <Button>Hey Wassup {user.name.givenName}</Button>
+            </Typography>
           </>
-        ):(<Typography style={{ color: "black" }}>
-          <Button onClick={() => navigate(`/login`)} >Login</Button>
-        </Typography>
-        )
-        }
-        <a style={{textDecoration:"none"}} href="https://anuragroshan.github.io/mycv/">
-        
-        <Typography style={{ color: "black" }}>
-          <Button>About Developer</Button>
-        </Typography>
+        ) : (
+          <Typography style={{ color: "black" }}>
+            <Button onClick={() => navigate(`/login`)}>Login</Button>
+          </Typography>
+        )}
+        <a
+          style={{ textDecoration: "none" }}
+          href="https://anuragroshan.github.io/mycv/"
+        >
+          <Typography style={{ color: "black" }}>
+            <Button>About Developer</Button>
+          </Typography>
         </a>
         <Typography style={{ color: "black" }}>
-          <Link to={'/trending'} style={{textDecoration:"none"}}><Button >Trendings</Button></Link>
+          <Link to={"/trending"} style={{ textDecoration: "none" }}>
+            <Button>Trendings</Button>
+          </Link>
         </Typography>
-        <div style={{display:"flex",flexDirection:"row"}}>
-        <TextField
-          InputLabelProps={{}}
-          id="outlined-search"
-          label="Search Movies Here"
-          type="search"
-          style={{
-            width: "100%",
-            color: "black",
-            marginLeft: "9px",
-          }}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-        <Button
-            style={{ marginBottom: 15 , height: "50px" }}
-            onClick={() => navigate(`/search/${searchText}`)} 
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <TextField
+            InputLabelProps={{}}
+            id="outlined-search"
+            label="Search Movies Here"
+            type="search"
+            style={{
+              width: "100%",
+              color: "black",
+              marginLeft: "9px",
+            }}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+          <Button
+            style={{ marginBottom: 15, height: "50px" }}
+            onClick={() => navigate(`/search/${searchText}`)}
           >
             <SearchIcon />
           </Button>
-          </div>
+        </div>
       </div>
 
       <div
@@ -123,21 +124,31 @@ const Footer = ({ user }) => {
           Connect With Us
         </Typography>
         <div style={{ display: "flex", flexDirection: "row" }}>
-          <Button style={{ flex: "1" }} align="center">
-            <InstagramIcon fontSize="large" />
-          </Button>
-          <Button style={{ flex: "1" }} align="center">
-            <MailOutlineIcon fontSize="large" />
-          </Button>
-          <Button style={{ flex: "1" }} align="center">
-            <TwitterIcon fontSize="large" />
-          </Button>
-          <Button style={{ flex: "1" }} align="center">
-            <LinkedInIcon fontSize="large" />
-          </Button>
-          <Button style={{ flex: "1" }} align="center">
-            <GitHubIcon fontSize="large" />
-          </Button>
+            <Button style={{ flex: "1" }} align="center">
+          <a style={{ color:"black" }} href="https://www.instagram.com/amnu_rag_15/">
+              <InstagramIcon fontSize="large" />
+          </a>
+            </Button>
+            <Button style={{ flex: "1" }} align="center">
+          <a style={{ color:"black" }} href="mailto:anuragraushan373@gmail.com">
+              <MailOutlineIcon fontSize="large" />
+          </a>
+            </Button>
+            <Button style={{ flex: "1" }} align="center">
+          <a style={{ color:"black" }} href="https://twitter.com/AnuRagRoshan15">
+              <TwitterIcon fontSize="large" />
+          </a>
+            </Button>
+            <Button style={{ flex: "1" }} align="center">
+          <a style={{ color:"black" }} href="https://www.linkedin.com/in/anurag-roshan/">
+              <LinkedInIcon fontSize="large" />
+          </a>
+            </Button>
+            <Button style={{ flex: "1" }} align="center">
+          <a style={{ color:"black" }} href="https://github.com/AnuragRoshan">
+              <GitHubIcon fontSize="large" />
+          </a>
+            </Button>
         </div>
         <div>
           <Typography
