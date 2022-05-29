@@ -5,7 +5,6 @@ import AliceCarousel from "react-alice-carousel";
 import Axios from "axios";
 import { img_300 } from "../../../Config/Config";
 import { useNavigate } from "react-router-dom";
-import GenreSort from "../../GenreSort";
 
 const handleDragStart = (e) => e.preventDefault();
 

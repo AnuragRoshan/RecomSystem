@@ -30,79 +30,78 @@ const RecmCarousel = () => {
   // const it="Hulk"
   // console.log(it);
 
-  const fetchTrending = async () => {
-    const { data } = await Axios.get(`http://localhost:5000/recomm/` + title);
-    setContent(data);
-    // console.log(data);
-  };
-
+  
   useEffect(() => {
+    const fetchTrending = async () => {
+      const { data } = await Axios.get(`http://localhost:5000/recomm/` + title);
+      setContent(data);
+    };
     fetchTrending();
   }, []);
 
   const [movie1, setMovie1] = useState([]);
-  const fetchMovie = async () => {
-    const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/movie/${content.movie_name1}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
-    );
-   setMovie1(data);
-    console.log(data);
-  };
-
+  
   useEffect(() => {
+    const fetchMovie = async () => {
+      const { data } = await Axios.get(
+        `https://api.themoviedb.org/3/movie/${content.movie_name1}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
+      );
+     setMovie1(data);
+      console.log(data);
+    };
     fetchMovie();
   }, [content]);
 
 
   const [movie2, setMovie2] = useState([]);
-  const fetchMovie2 = async () => {
-    const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/movie/${content.movie_name2}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
-    );
-   setMovie2(data);
-    console.log(data);
-  };
-
+  
   useEffect(() => {
+    const fetchMovie2 = async () => {
+      const { data } = await Axios.get(
+        `https://api.themoviedb.org/3/movie/${content.movie_name2}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
+      );
+     setMovie2(data);
+      console.log(data);
+    };
     fetchMovie2();
   }, [content]);
 
   const [movie3, setMovie3] = useState([]);
-  const fetchMovie3 = async () => {
-    const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/movie/${content.movie_name3}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
-    );
-   setMovie3(data);
-    console.log(data);
-  };
-
+  
   useEffect(() => {
+    const fetchMovie3 = async () => {
+      const { data } = await Axios.get(
+        `https://api.themoviedb.org/3/movie/${content.movie_name3}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
+      );
+     setMovie3(data);
+      console.log(data);
+    };
     fetchMovie3();
   }, [content]);
 
   const [movie4, setMovie4] = useState([]);
-  const fetchMovie4 = async () => {
-    const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/movie/${content.movie_name4}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
-    );
-   setMovie4(data);
-    console.log(data);
-  };
-
+  
   useEffect(() => {
+    const fetchMovie4 = async () => {
+      const { data } = await Axios.get(
+        `https://api.themoviedb.org/3/movie/${content.movie_name4}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
+      );
+     setMovie4(data);
+      console.log(data);
+    };
     fetchMovie4();
   }, [content]);
 
   const [movie5, setMovie5] = useState([]);
-  const fetchMovie5 = async () => {
-    const { data } = await Axios.get(
-      `https://api.themoviedb.org/3/movie/${content.movie_name5}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
-    );
-   setMovie5(data);
-    console.log(data);
-  };
-
+  
   useEffect(() => {
+    const fetchMovie5 = async () => {
+      const { data } = await Axios.get(
+        `https://api.themoviedb.org/3/movie/${content.movie_name5}?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US`
+      );
+     setMovie5(data);
+      console.log(data);
+    };
     fetchMovie5();
   }, [content]);
 

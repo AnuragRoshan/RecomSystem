@@ -1,5 +1,4 @@
 import { Button, Container, Typography } from "@material-ui/core";
-import { Rating } from "@mui/material";
 import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import {  useNavigate, useParams } from "react-router-dom";

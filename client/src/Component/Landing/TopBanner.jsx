@@ -74,7 +74,7 @@ const navigate=useNavigate()
           <img
             style={{ objectFit: "cover", maxHeight: "100%", maxWidth: "100%" }}
             src="https://www.linkpicture.com/q/mPngtreemfamily-friends-gathering-to-watch_6447078.png"
-            alt="image"
+            alt="pngMovie"
             srcset=""
           />
         </div>

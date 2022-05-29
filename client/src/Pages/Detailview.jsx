@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import DetailBanner from '../Component/DetailView/DetailBanner';
-import RecomCarousel from '../Component/DetailView/RecomCarousel';
 
 
 function Detailview() {

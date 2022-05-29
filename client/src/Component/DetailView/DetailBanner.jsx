@@ -1,7 +1,6 @@
-import { Button,  Tooltip, Typography } from "@material-ui/core";
+import {   Tooltip, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import CastCarousel from "./CastCarousel";
 import Axios from "axios";
 import { img_300 } from "../../Config/Config";
