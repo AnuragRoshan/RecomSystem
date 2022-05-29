@@ -41,7 +41,7 @@ Clone the project
 Install Python Libraries
 
 ```bash
-pip install sklearn nltk pandas
+pip install sklearn nltk pandas gunicorn flask flask-cors numpy pandas requests
 ```
 
 move into RecomSystem folder
