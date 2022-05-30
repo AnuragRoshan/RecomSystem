@@ -5,7 +5,7 @@ import Carousel5 from "./Carousel5/Carousel5";
 const ScienceFiction = () => {
   return (
     <>
-      <Container style={{ marginTop: "6.1rem" }}>
+      <Container style={{ marginTop: "11rem" }}>
         <Typography
           variant="h5"
           style={{

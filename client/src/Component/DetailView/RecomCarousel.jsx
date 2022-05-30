@@ -35,7 +35,7 @@ const RecmCarousel = () => {
       setContent(data);
     };
     fetchTrending();
-  }, []);
+  }, [title]);
 
   const [movie1, setMovie1] = useState([]);
   

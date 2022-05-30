@@ -2,9 +2,9 @@ import { Container, Typography } from "@material-ui/core";
 import React from "react";
 import Carousel3 from "./Carousel3/Carousel3";
 
-export const Kids = () => {
+export const Horror = () => {
   return (
-    <Container style={{ marginTop: "11rem" }}>
+    <Container style={{ marginTop: "6.1rem" }}>
       <Typography
         variant="h5"
         style={{
@@ -14,7 +14,7 @@ export const Kids = () => {
           paddingTop: "52px",
         }}
       >
-        kids{" "}
+        Horror{" "}
       </Typography>
       <Carousel3 />
     </Container>

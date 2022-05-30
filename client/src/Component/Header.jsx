@@ -142,6 +142,7 @@ export default function Header({ user }) {
             onChange={(e) => setSearchText(e.target.value)}
           />
           <Button
+          className={classes.btn}
             style={{ marginBottom: 15, color: setNavTextCol, height: "50px" }}
             onClick={() => navigate(`/search/${searchText}`)}
           >

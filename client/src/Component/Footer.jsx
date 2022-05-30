@@ -135,27 +135,27 @@ const Footer = ({ user }) => {
         </Typography>
         <div style={{ display: "flex", flexDirection: "row" }}>
             <Button style={{ flex: "1" }} align="center">
-          <a style={{ color:"black" }} href="https://www.instagram.com/amnu_rag_15/">
+          <a style={{ color:"black" }} href="https://www.instagram.com/amnu_rag_15/" target="_blank" rel="noopener noreferrer">
               <InstagramIcon fontSize="large" />
           </a>
             </Button>
             <Button style={{ flex: "1" }} align="center">
-          <a style={{ color:"black" }} href="mailto:anuragraushan373@gmail.com">
+          <a style={{ color:"black" }} href="mailto:anuragraushan373@gmail.com" target="_blank" rel="noopener noreferrer">
               <MailOutlineIcon fontSize="large" />
           </a>
             </Button>
             <Button style={{ flex: "1" }} align="center">
-          <a style={{ color:"black" }} href="https://twitter.com/AnuRagRoshan15">
+          <a style={{ color:"black" }} href="https://twitter.com/AnuRagRoshan15" target="_blank" rel="noopener noreferrer">
               <TwitterIcon fontSize="large" />
           </a>
             </Button>
             <Button style={{ flex: "1" }} align="center">
-          <a style={{ color:"black" }} href="https://www.linkedin.com/in/anurag-roshan/">
+          <a style={{ color:"black" }} href="https://www.linkedin.com/in/anurag-roshan/" target="_blank" rel="noopener noreferrer"> 
               <LinkedInIcon fontSize="large" />
           </a>
             </Button>
             <Button style={{ flex: "1" }} align="center">
-          <a style={{ color:"black" }} href="https://github.com/AnuragRoshan">
+          <a style={{ color:"black" }} href="https://github.com/AnuragRoshan" target="_blank" rel="noopener noreferrer">
               <GitHubIcon fontSize="large" />
           </a>
             </Button>

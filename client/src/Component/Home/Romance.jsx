@@ -2,7 +2,7 @@ import { Container, Typography } from "@material-ui/core";
 import React from "react";
 import Carousel2 from "./Carousel2/Carousel2";
 
-const LatestNTrending = () => {
+const Romance = () => {
   return (
     <>
       <Container style={{ marginTop: "6.1rem" }}>
@@ -15,7 +15,7 @@ const LatestNTrending = () => {
             paddingTop: "52px",
           }}
         >
-          Latest and Trending
+          Romance
         </Typography>
         <Carousel2 />
       </Container>
@@ -23,4 +23,4 @@ const LatestNTrending = () => {
   );
 };
 
-export default LatestNTrending;
+export default Romance;
