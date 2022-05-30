@@ -26,6 +26,22 @@ const Footer = ({ user }) => {
       fontWeight: "bold",
       cursor: "pointer",
     },
+    topDiv:{
+      backgroundColor: "#e2e7e9",
+      alignItems: "center",
+      marginTop: "9.1rem",
+      height: "40vh",
+      paddingBlock: "40px",
+      display: "flex",
+      bottom: "0px",
+      width:"100%",
+      flexDirection: "row",
+      "@media (max-width:780px)": {
+        flexDirection: "column",
+        marginTop:"3rem",
+      height: "70vh",
+      },
+    }
   }));
   const classes = useStyles();
 
@@ -33,15 +49,9 @@ const Footer = ({ user }) => {
   const navigate = useNavigate();
   return (
     <Container
+    className={classes.topDiv}
       style={{
-        backgroundColor: "#e2e7e9",
-        alignItems: "center",
-        marginTop: "9.1rem",
-        height: "40vh",
-        paddingBlock: "40px",
-        display: "flex",
-        bottom: "0px",
-        flexDirection: "row",
+        
       }}
     >
       <div

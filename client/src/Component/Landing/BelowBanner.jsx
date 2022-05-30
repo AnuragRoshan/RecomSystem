@@ -17,7 +17,20 @@ const BelowBanner = () => {
             border:"solid 1px transparent",
             boxShadow: "-2px -4px 400px -37px rgba(158,158,158,0.95);"
          },
+        },
+        topDiv:{
+          display: "flex",
+          flexDirection: "row",
+          margin: "2rem",
+          color: "white",
+          "@media (max-width:780px)": {
+            display: "flex",
+          flexDirection: "column",
+          margin: "2rem",
+          color: "white",
+          },
         }
+
 
 
 }))
@@ -27,12 +40,8 @@ const classes=useStyle();
 
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        margin: "2rem",
-        color: "white",
-      }}
+    className={classes.topDiv}
+    
     >
       <div
        
@@ -99,11 +108,6 @@ const classes=useStyle();
           Enjoy Latest And Trending Movie and Get Tons of Reviews of Every Movie
         </Typography>
       </div>
-      {/* <div style={{flex:"1",padding:"3rem",textAlign:"center",height:"25rem",marginInline:"1rem",backgroundColor:"yellow"}}> 
-        <div>hey</div>
-        <div>hey</div>
-        <div>hey</div>
-         </div> */}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { Tooltip, Typography } from "@material-ui/core";
+import { makeStyles, Tooltip, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CastCarousel from "./CastCarousel";
@@ -11,6 +11,9 @@ export function numberWithCommas(x) {
 }
 
 const DetailBanner = () => {
+
+
+
   const { id } = useParams();
   const [content, setContent] = useState([]);
   const fetchTrending = async () => {
@@ -25,15 +28,48 @@ const DetailBanner = () => {
     // eslint-disable-next-line
   }, []);
 
+
+
+const useStyle = makeStyles(() => ({
+   topdiv:{
+    margin: "50px", display: "flex", flexDirection: "row" ,
+    "@media (max-width:780px)": {
+      // eslint-disable-line no-useless-computed-key
+      flexDirection: "column",
+      // width:"100%",
+      // height: "68rem",
+    },
+
+   },
+   secondTopdiv:{
+    width: "50%" ,
+    "@media (max-width:850px)": {
+      // eslint-disable-line no-useless-computed-key
+      width:"100%"
+    },
+   }
+   ,movieiBanner:{
+     height:"500px",
+     width:"100%",
+     "@media (max-width:850px)": {
+      // eslint-disable-line no-useless-computed-key
+      height:"800px",
+     width:"100%",
+    },
+   }
+  }));
+
+
+const classes=useStyle()
+
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ margin: "50px", display: "flex", flexDirection: "row" }}>
-        <div style={{ width: "50%" }}>
+      <div className={classes.topdiv} >
+        <div className={classes.secondTopdiv}>
           <img
+          className={classes.movieiBanner}
             alt={content.title}
             src={`${img_300}/${content.poster_path}`}
-            height="500px"
-            width="100%"
           ></img>
         </div>
         <div

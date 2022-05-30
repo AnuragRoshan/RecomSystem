@@ -1,4 +1,4 @@
-import { Tooltip, Typography } from "@material-ui/core";
+import { makeStyles, Tooltip, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CastCarousel from "./CastCarousel";
@@ -25,15 +25,48 @@ const DetailBanner2 = () => {
     // eslint-disable-next-line
   }, []);
 
+
+
+  const useStyle = makeStyles(() => ({
+    topdiv:{
+     margin: "50px", display: "flex", flexDirection: "row" ,
+     "@media (max-width:780px)": {
+       // eslint-disable-line no-useless-computed-key
+       flexDirection: "column",
+     },
+ 
+    },
+    secondTopdiv:{
+     width: "50%" ,
+     "@media (max-width:850px)": {
+       // eslint-disable-line no-useless-computed-key
+       width:"100%"
+     },
+    }
+    ,movieiBanner:{
+      height:"500px",
+      width:"100%",
+      "@media (max-width:850px)": {
+       // eslint-disable-line no-useless-computed-key
+       height:"800px",
+      width:"100%",
+     },
+    }
+   }));
+ 
+ 
+ const classes=useStyle()
+ 
+
+
   return (
     <div style={{ width: "100%" }}>
-      <div style={{ margin: "50px", display: "flex", flexDirection: "row" }}>
-        <div style={{ width: "50%" }}>
+      <div className={classes.topdiv}>
+        <div className={classes.secondTopdiv}>
           <img
             alt={content.title}
             src={`${img_300}/${content.poster_path}`}
-            height="500px"
-            width="100%"
+            className={classes.movieiBanner}
           ></img>
         </div>
         <div
