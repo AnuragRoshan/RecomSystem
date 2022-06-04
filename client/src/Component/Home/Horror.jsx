@@ -4,7 +4,7 @@ import Carousel3 from "./Carousel3/Carousel3";
 
 export const Horror = () => {
   return (
-    <Container style={{ marginTop: "6.1rem" }}>
+    <Container style={{ marginTop: "11rem" }}>
       <Typography
         variant="h5"
         style={{

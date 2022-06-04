@@ -10,10 +10,10 @@ const Home = () => {
     <div>
       <Banner />
 
-      <ScienceFiction />
-      <Romance />
-      <Action />
       <Horror />
+      <Romance />
+      <ScienceFiction />
+      <Action />
     </div>
   );
 };
