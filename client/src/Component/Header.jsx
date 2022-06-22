@@ -153,6 +153,7 @@ export default function Header({ user }) {
               <Button
                 className={classes.btn}
                 style={{
+                  height:"3rem",
                   marginLeft: "1rem",
                   paddingBlock: loginpadding,
                 }}
@@ -174,6 +175,7 @@ export default function Header({ user }) {
                 onClick={logout}
                 className={classes.btn}
                 style={{
+                  height:"3rem",
                   paddingBlock: loginpadding,
                 }}
               >

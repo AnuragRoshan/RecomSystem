@@ -89,7 +89,7 @@ const classes=useStyle()
           <div style={{ display: "flex", flexDirection: "row" }}>
             {" "}
             <Typography style={{ fontSize: "40px", fontWeight: "700" }}>
-              {content.original_title}
+              {content.title}
             </Typography>
           </div>
           <div style={{ fontSize: "20px" }}>

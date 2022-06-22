@@ -36,7 +36,7 @@ const ApiRecomCarousel = () => {
       setContent(data.results);
     };
     fetchTrending();
-  }, [title]);
+  }, [title,id]);
 
   const items = content.map((c) => (
     <Button onClick={() => navigate(`/detail/${c.id}/${c.title}`)}>
