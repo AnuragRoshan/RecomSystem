@@ -55,6 +55,12 @@ const useStyle = makeStyles(() => ({
    ,movieiBanner:{
      height:"500px",
      width:"100%",
+     '&:hover': {
+      background: "#e2e7e9",
+      color:"black",
+      // border:"solid 1px transparent",
+      boxShadow: "-2px -4px 400px -37px rgba(158,158,150,0.95);"
+   },
      "@media (max-width:850px)": {
       // eslint-disable-line no-useless-computed-key
       height:"800px",
