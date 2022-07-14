@@ -95,6 +95,11 @@ If you have any feedback, please reach out to us at anuragraushan373@gmail.com
 ## Home Page
 ![mvrse1](https://user-images.githubusercontent.com/68966298/178826468-28b970b4-1051-4f01-a1b7-57841af3a7b7.JPG)
 
+## Movie Detail Page
+![mvrs9](https://user-images.githubusercontent.com/68966298/178955632-b53e50db-d66a-47cd-b694-a8991039478b.JPG)
+![mvrs10](https://user-images.githubusercontent.com/68966298/178955646-28c9b113-9d74-487d-8385-1f27d670ed62.JPG)
+
+
 ## Filtered On Genre
 ![mvrs2](https://user-images.githubusercontent.com/68966298/178826519-617eb6e6-fbc3-49a7-b17f-156ebe9e3f4a.JPG)
 
