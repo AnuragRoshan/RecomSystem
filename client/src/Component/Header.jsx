@@ -130,6 +130,14 @@ export default function Header({ user }) {
             InputProps={{
               className: classes.multilineColor,
             }}
+
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                setSearchText(e.target.value)
+                navigate(`/search/${searchText}`)
+              }
+            }}
+
             id="outlined-search"
             label="Search Movies Here"
             type="search"
