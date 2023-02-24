@@ -25,8 +25,8 @@ const ApiRecomCarousel = () => {
 
   const [content, setContent] = useState([]);
 
-  console.log(id);
-  console.log(title);
+  // console.log(id);
+  // console.log(title);
 
   useEffect(() => {
     const fetchTrending = async () => {
@@ -36,7 +36,7 @@ const ApiRecomCarousel = () => {
       setContent(data.results);
     };
     fetchTrending();
-  }, [title,id]);
+  }, [title, id]);
 
   const items = content.map((c) => (
     <Button onClick={() => navigate(`/recomm/detail/${c.id}/${c.title}`)}>

@@ -17,7 +17,6 @@ const TrendingToday = () => {
 
   useEffect(() => {
     fetchTrending();
-    // eslint-disable-next-line
   }, []);
   const navigate = useNavigate();
   return (

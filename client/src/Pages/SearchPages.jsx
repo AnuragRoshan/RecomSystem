@@ -16,16 +16,15 @@ const SearchPages = () => {
             https://api.themoviedb.org/3/search/movie?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US&query=${id}&page=1&include_adult=false`
       );
       setcontent(data.results);
-      console.log(data.results);
+      // console.log(data.results);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   };
 
   useEffect(() => {
     window.scroll(0, 0);
     fetchSearch();
-    // eslint-disable-next-line
   }, [id]);
 
   const navigate = useNavigate();

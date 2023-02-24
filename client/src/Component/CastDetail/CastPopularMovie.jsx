@@ -5,7 +5,6 @@ import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrow
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import AliceCarousel from "react-alice-carousel";
 import Axios from "axios";
-import dotenv from "dotenv";
 import { img_300 } from "../../Config/Config";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -71,7 +70,6 @@ const RecmCarousel = () => {
         </div>
       </div>
     </Button>
-    // );
   ));
   const responsive = {
     0: {

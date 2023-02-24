@@ -18,7 +18,6 @@ const DetailBanner = () => {
 
   useEffect(() => {
     fetchTrending();
-    // eslint-disable-next-line
   }, []);
 
   return (

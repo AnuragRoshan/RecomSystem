@@ -36,7 +36,6 @@ const Carousel3 = () => {
 
   useEffect(() => {
     fetchTrending();
-    // eslint-disable-next-line
   }, []);
   const items = content.map((c) => (
       <Button onClick={() => navigate(`/detail/${c.id}/${c.title}`)}  >

@@ -25,7 +25,6 @@ const TopBanner = () => {
       width:"100%",
       flexDirection: "row",
       "@media (max-width:780px)": {
-        // eslint-disable-line no-useless-computed-key
         flexDirection: "column",
         width:"100%",
         height: "68rem",
@@ -36,7 +35,6 @@ const TopBanner = () => {
       maxHeight: "100%",
       maxWidth: "100%",
       "@media (max-width:780px)": {
-        // eslint-disable-line no-useless-computed-key
         objectFit: "cover",
         maxHeight: "90%",
       maxWidth: "90%",

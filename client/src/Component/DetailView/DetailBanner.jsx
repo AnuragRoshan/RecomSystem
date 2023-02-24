@@ -29,7 +29,6 @@ const DetailBanner = () => {
 
   useEffect(() => {
     fetchTrending();
-    // eslint-disable-next-line
   }, []);
 
 
@@ -38,17 +37,13 @@ const useStyle = makeStyles(() => ({
    topdiv:{
     margin: "50px", display: "flex", flexDirection: "row" ,
     "@media (max-width:780px)": {
-      // eslint-disable-line no-useless-computed-key
       flexDirection: "column",
-      // width:"100%",
-      // height: "68rem",
     },
 
    },
    secondTopdiv:{
     width: "50%" ,
     "@media (max-width:850px)": {
-      // eslint-disable-line no-useless-computed-key
       width:"100%"
     },
    }
@@ -58,11 +53,9 @@ const useStyle = makeStyles(() => ({
      '&:hover': {
       background: "#e2e7e9",
       color:"black",
-      // border:"solid 1px transparent",
       boxShadow: "-2px -4px 400px -37px rgba(158,158,150,0.95);"
    },
      "@media (max-width:850px)": {
-      // eslint-disable-line no-useless-computed-key
       height:"800px",
      width:"100%",
     },
@@ -159,7 +152,6 @@ const classes=useStyle()
         </Typography>
         { arr.includes(id)?(
         <RecomCarousel/>):(<ApiRecomCarousel/>) }
-        {/* <RecomCarousel/> */}
         {
 
         }

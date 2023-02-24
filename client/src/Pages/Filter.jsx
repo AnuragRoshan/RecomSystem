@@ -19,7 +19,6 @@ const Filter = () => {
   
     useEffect(() => {
       fetchTrending();
-      // eslint-disable-next-line
     }, []);
   const navigate = useNavigate();
   return (
@@ -55,7 +54,7 @@ const Filter = () => {
               alt="hello"
             />
             <div>
-              <Typography style={{ color: "white" ,width:"100%" }}>
+              <Typography  style={{ color: "white" ,width:"100%" }}>
                 
                 {`${c.title}`.length > 20 ? (
                   <div>{`${`${c.title}`.substring(0, 20)}...`}</div>

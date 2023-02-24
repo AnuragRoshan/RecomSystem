@@ -30,12 +30,10 @@ const Carousel2 = () => {
       `https://api.themoviedb.org/3/movie/216015/recommendations?api_key=b9e11d2c8939104a4a755544e4eb8847&language=en-US&page=1`
     );
     setContent(data.results);
-    console.log(data.results);
   };
 
   useEffect(() => {
     fetchTrending();
-    // eslint-disable-next-line
   }, []);
   const items = content.map((c) => (
     <Button onClick={() => navigate(`/detail/${c.id}/${c.title}`)}>
