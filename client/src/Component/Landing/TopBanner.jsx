@@ -18,26 +18,25 @@ const TopBanner = () => {
       },
     },
     topDiv: {
-      height: "34rem",
+      height: "90vh",
       backgroundColor: "#e2e7e9",
       marginTop: "5.5rem",
       display: "flex",
-      width:"100%",
+      width: "100%",
       flexDirection: "row",
       "@media (max-width:780px)": {
         flexDirection: "column",
-        width:"100%",
+        width: "100%",
         height: "68rem",
       },
     },
     bannerImage: {
-      
       maxHeight: "100%",
       maxWidth: "100%",
       "@media (max-width:780px)": {
         objectFit: "cover",
         maxHeight: "90%",
-      maxWidth: "90%",
+        maxWidth: "90%",
       },
     },
   }));
@@ -61,7 +60,7 @@ const TopBanner = () => {
               fontFamily: "Montserrat",
               fontWeight: "500",
             }}
-            variant="h2"
+            variant="h1"
           >
             {" "}
             MoviesVerse
@@ -83,13 +82,23 @@ const TopBanner = () => {
           </Button>
         </div>
 
-        <div style={{ flex: 3, display: "inlineblock" }}>
-          <img
-            className={classes.bannerImage}
-            src="https://www.linkpicture.com/q/mPngtreemfamily-friends-gathering-to-watch_6447078.png"
-            alt="pngMovie"
-            srcset=""
-          />
+        <div
+          style={{
+            flex: 3,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "1rem",
+          }}
+        >
+          <div>
+            <img
+              className={classes.bannerImage}
+              src="https://raw.githubusercontent.com/AnuragRoshan/images/75dea825db1a34bc094d4abcd32f0640762eab89/undraw_before_dawn_re_hp4m.svg"
+              alt="pngMovie"
+              srcset=""
+            />
+          </div>
         </div>
       </div>
     </div>
